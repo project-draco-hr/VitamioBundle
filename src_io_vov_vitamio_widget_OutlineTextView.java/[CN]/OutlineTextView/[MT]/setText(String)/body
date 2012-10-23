@@ -1,0 +1,6 @@
+{
+  super.setText(text);
+  mText=text.toString();
+  requestLayout();
+  invalidate();
+}

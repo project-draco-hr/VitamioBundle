@@ -1,0 +1,7 @@
+{
+  if (isInPlaybackState()) {
+    release(false);
+    mCurrentState=STATE_SUSPEND_UNSUPPORTED;
+    Log.d("Unable to suspend video. Release MediaPlayer.");
+  }
+}

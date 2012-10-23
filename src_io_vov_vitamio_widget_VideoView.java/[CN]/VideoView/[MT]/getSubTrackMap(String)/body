@@ -1,0 +1,4 @@
+{
+  if (mMediaPlayer != null)   return mMediaPlayer.getSubTrackMap(encoding);
+  return null;
+}

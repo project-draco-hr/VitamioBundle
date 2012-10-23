@@ -1,0 +1,7 @@
+{
+  try {
+    if (mPauseButton != null && !mPlayer.canPause())     mPauseButton.setEnabled(false);
+  }
+ catch (  IncompatibleClassChangeError ex) {
+  }
+}

@@ -1,0 +1,18 @@
+{
+  int count=getChildCount();
+  mWidth=getMeasuredWidth();
+  mHeight=getMeasuredHeight();
+  for (int i=0; i < count; i++) {
+    View child=getChildAt(i);
+    if (child.getVisibility() != GONE) {
+      CenterLayout.LayoutParams lp=(CenterLayout.LayoutParams)child.getLayoutParams();
+      int childLeft=mPaddingLeft + lp.x;
+      if (lp.width > 0)       childLeft+=(int)((mWidth - lp.width) / 2.0);
+ else       childLeft+=(int)((mWidth - child.getMeasuredWidth()) / 2.0);
+      int childTop=mPaddingTop + lp.y;
+      if (lp.height > 0)       childTop+=(int)((mHeight - lp.height) / 2.0);
+ else       childTop+=(int)((mHeight - child.getMeasuredHeight()) / 2.0);
+      child.layout(childLeft,childTop,childLeft + child.getMeasuredWidth(),childTop + child.getMeasuredHeight());
+    }
+  }
+}

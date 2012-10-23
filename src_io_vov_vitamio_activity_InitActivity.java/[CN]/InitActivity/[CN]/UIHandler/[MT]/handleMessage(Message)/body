@@ -1,0 +1,16 @@
+{
+  InitActivity ctx=(InitActivity)mContext.get();
+switch (msg.what) {
+case 0:
+    ctx.mPD.dismiss();
+  Intent src=ctx.getIntent();
+Intent i=new Intent();
+i.setClassName(src.getStringExtra("package"),src.getStringExtra("className"));
+i.setData(src.getData());
+i.putExtras(src);
+i.putExtra(FROM_ME,true);
+ctx.startActivity(i);
+ctx.finish();
+break;
+}
+}

@@ -1,0 +1,27 @@
+{
+  LayoutParams lp=getLayoutParams();
+  DisplayMetrics disp=mContext.getResources().getDisplayMetrics();
+  int windowWidth=disp.widthPixels, windowHeight=disp.heightPixels;
+  float windowRatio=windowWidth / (float)windowHeight;
+  float videoRatio=aspectRatio <= 0.01f ? mVideoAspectRatio : aspectRatio;
+  mSurfaceHeight=mVideoHeight;
+  mSurfaceWidth=mVideoWidth;
+  if (VIDEO_LAYOUT_ORIGIN == layout && mSurfaceWidth < windowWidth && mSurfaceHeight < windowHeight) {
+    lp.width=(int)(mSurfaceHeight * videoRatio);
+    lp.height=mSurfaceHeight;
+  }
+ else   if (layout == VIDEO_LAYOUT_ZOOM) {
+    lp.width=windowRatio > videoRatio ? windowWidth : (int)(videoRatio * windowHeight);
+    lp.height=windowRatio < videoRatio ? windowHeight : (int)(windowWidth / videoRatio);
+  }
+ else {
+    boolean full=layout == VIDEO_LAYOUT_STRETCH;
+    lp.width=(full || windowRatio < videoRatio) ? windowWidth : (int)(videoRatio * windowHeight);
+    lp.height=(full || windowRatio > videoRatio) ? windowHeight : (int)(windowWidth / videoRatio);
+  }
+  setLayoutParams(lp);
+  getHolder().setFixedSize(mSurfaceWidth,mSurfaceHeight);
+  Log.d("VIDEO: %dx%dx%f, Surface: %dx%d, LP: %dx%d, Window: %dx%dx%f",mVideoWidth,mVideoHeight,mVideoAspectRatio,mSurfaceWidth,mSurfaceHeight,lp.width,lp.height,windowWidth,windowHeight,windowRatio);
+  mVideoLayout=layout;
+  mAspectRatio=aspectRatio;
+}
