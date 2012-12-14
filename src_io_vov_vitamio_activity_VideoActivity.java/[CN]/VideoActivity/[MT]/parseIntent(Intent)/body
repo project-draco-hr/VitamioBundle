@@ -1,0 +1,8 @@
+{
+  mUri=IntentHelper.getIntentUri(intent);
+  mVideoView=(VideoView)findViewById(R.id.video);
+  mVideoView.setVideoURI(mUri);
+  mVideoView.setVideoTitle(intent.getStringExtra("displayName"));
+  mVideoView.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
+  mVideoView.setMediaController(new MediaController(this));
+}

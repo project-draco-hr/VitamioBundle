@@ -1,0 +1,4 @@
+{
+  if (mListener != null && mGestureEnabled)   mListener.onScale(0F,SCALE_STATE_BEGIN);
+  return true;
+}

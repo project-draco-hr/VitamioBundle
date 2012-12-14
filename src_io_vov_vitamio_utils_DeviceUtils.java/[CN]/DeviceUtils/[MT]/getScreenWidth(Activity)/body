@@ -1,0 +1,12 @@
+{
+  int width;
+  Display display=ctx.getWindowManager().getDefaultDisplay();
+  try {
+    Method mGetRawW=Display.class.getMethod("getRawWidth");
+    width=(Integer)mGetRawW.invoke(display);
+  }
+ catch (  Exception e) {
+    width=display.getWidth();
+  }
+  return width;
+}

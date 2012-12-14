@@ -1,0 +1,19 @@
+{
+  if (mListener == null)   return false;
+  if (mTapGestureDetector.onTouchEvent(event))   return true;
+  if (event.getPointerCount() > 1) {
+    try {
+      if (mScaleDetector != null && mScaleDetector.onTouchEvent(event))       return true;
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+  if (mDoubleTapGestureDetector.onTouchEvent(event))   return true;
+switch (event.getAction() & MotionEvent.ACTION_MASK) {
+case MotionEvent.ACTION_UP:
+    mListener.onGestureEnd();
+  break;
+}
+return false;
+}

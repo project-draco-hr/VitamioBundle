@@ -1,0 +1,4 @@
+{
+  mDown=true;
+  return super.onDown(event);
+}

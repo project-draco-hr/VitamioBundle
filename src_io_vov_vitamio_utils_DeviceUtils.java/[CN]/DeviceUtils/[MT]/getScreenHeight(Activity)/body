@@ -1,0 +1,12 @@
+{
+  int height;
+  Display display=ctx.getWindowManager().getDefaultDisplay();
+  try {
+    Method mGetRawH=Display.class.getMethod("getRawHeight");
+    height=(Integer)mGetRawH.invoke(display);
+  }
+ catch (  Exception e) {
+    height=display.getHeight();
+  }
+  return height;
+}

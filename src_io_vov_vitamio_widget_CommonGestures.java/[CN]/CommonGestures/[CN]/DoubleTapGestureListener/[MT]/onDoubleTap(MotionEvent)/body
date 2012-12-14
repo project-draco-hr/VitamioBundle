@@ -1,0 +1,4 @@
+{
+  if (mListener != null && mGestureEnabled)   mListener.onDoubleTap();
+  return super.onDoubleTap(event);
+}

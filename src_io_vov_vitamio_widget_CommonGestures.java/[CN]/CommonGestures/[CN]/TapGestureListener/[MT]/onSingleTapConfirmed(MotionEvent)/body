@@ -1,0 +1,4 @@
+{
+  if (mListener != null)   mListener.onSingleTap();
+  return true;
+}

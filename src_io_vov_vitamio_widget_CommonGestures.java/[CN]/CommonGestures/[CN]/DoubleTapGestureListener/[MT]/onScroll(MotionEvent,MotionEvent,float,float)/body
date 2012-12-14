@@ -1,0 +1,20 @@
+{
+  if (mListener != null && mGestureEnabled && e1 != null && e2 != null) {
+    if (mDown) {
+      mListener.onGestureBegin();
+      mDown=false;
+    }
+    float mOldX=e1.getX(), mOldY=e1.getY();
+    int windowWidth=DeviceUtils.getScreenWidth(mContext);
+    int windowHeight=DeviceUtils.getScreenHeight(mContext);
+    if (Math.abs(e2.getY(0) - mOldY) * 2 > Math.abs(e2.getX(0) - mOldX)) {
+      if (mOldX > windowWidth * 4.0 / 5) {
+        mListener.onRightSlide((mOldY - e2.getY(0)) / windowHeight);
+      }
+ else       if (mOldX < windowWidth / 5.0) {
+        mListener.onLeftSlide((mOldY - e2.getY(0)) / windowHeight);
+      }
+    }
+  }
+  return super.onScroll(e1,e2,distanceX,distanceY);
+}

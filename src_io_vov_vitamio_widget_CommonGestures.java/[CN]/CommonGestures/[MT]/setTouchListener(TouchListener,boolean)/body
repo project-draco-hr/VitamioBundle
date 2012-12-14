@@ -1,0 +1,4 @@
+{
+  mListener=l;
+  mGestureEnabled=enable;
+}

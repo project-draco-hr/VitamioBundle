@@ -1,0 +1,7 @@
+{
+  if (!io.vov.vitamio.LibsChecker.checkVitamioLibs(this))   return;
+  super.onCreate(savedInstanceState);
+  setVolumeControlStream(AudioManager.STREAM_MUSIC);
+  setContentView(R.layout.activity_video);
+  parseIntent(getIntent());
+}
