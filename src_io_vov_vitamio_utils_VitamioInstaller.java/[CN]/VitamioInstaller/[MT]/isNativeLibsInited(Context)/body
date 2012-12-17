@@ -1,0 +1,33 @@
+{
+  String packageName=context.getPackageName();
+  File dir=new File(VitamioInstaller.getLibraryPath(packageName));
+  Log.i("isNativeLibsInited: %s, %b, %b",dir.getAbsolutePath(),dir.exists(),dir.isDirectory());
+  if (dir.exists() && dir.isDirectory()) {
+    String[] libs=dir.list();
+    if (libs != null) {
+      Arrays.sort(libs);
+      for (      String L : LIBS) {
+        if (Arrays.binarySearch(libs,L) < 0) {
+          Log.e("Native libs %s not exists!",L);
+          return false;
+        }
+      }
+      File lock=new File(getLibraryPath(packageName) + "/inited.lock");
+      FileReader fr=null;
+      try {
+        fr=new FileReader(lock);
+        int appVersion=ContextUtils.getVersionCode(context);
+        int libVersion=fr.read();
+        Log.i("isNativeLibsInited, APP VERSION: %d, Vitamio Library version: %d",appVersion,libVersion);
+        if (libVersion == appVersion)         return true;
+      }
+ catch (      IOException e) {
+        Log.e("isNativeLibsInited",e);
+      }
+ finally {
+        IOUtils.closeSilently(fr);
+      }
+    }
+  }
+  return false;
+}
