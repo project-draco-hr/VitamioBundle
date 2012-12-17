@@ -1,0 +1,5 @@
+{
+  super.onStart();
+  if (!mCreated)   return;
+  bindService(new Intent(this,PlayerService.class),vPlayerServiceConnection,Context.BIND_AUTO_CREATE);
+}

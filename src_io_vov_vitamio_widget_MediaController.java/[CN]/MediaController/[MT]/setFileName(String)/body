@@ -1,4 +1,3 @@
 {
-  mTitle=name;
-  if (mFileName != null)   mFileName.setText(mTitle);
+  mFileName.setText(name);
 }

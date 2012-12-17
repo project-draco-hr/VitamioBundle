@@ -1,0 +1,18 @@
+{
+  if (mPlayer == null)   vplayerInit();
+  mListener=listener;
+  mOldUri=mUri;
+  mUri=filePath;
+  mSeekTo=startPos;
+  mMediaId=-1;
+  mLastAudioTrack=-1;
+  mLastSubTrackId=-1;
+  mLastSubTrack="";
+  setMediaTrack();
+  Log.i("%s ==> %s, %s, %s, %s",mOldUri,mUri,mInitialized,mPrepared,mVideoSizeKnown);
+  mFromNotification=mInitialized && mUri != null && mUri.equals(mOldUri);
+  mListener.onOpenStart();
+  if (!mFromNotification)   openVideo();
+ else   openSuccess();
+  return mInitialized;
+}

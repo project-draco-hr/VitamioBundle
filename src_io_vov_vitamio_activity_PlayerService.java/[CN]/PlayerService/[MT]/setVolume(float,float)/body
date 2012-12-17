@@ -1,0 +1,9 @@
+{
+  if (mInitialized) {
+    if (left <= 0f)     left=0f;
+ else     if (left >= 1f)     left=1f;
+    if (right <= 0f)     right=0f;
+ else     if (right >= 1f)     right=1f;
+    mPlayer.setVolume(left,right);
+  }
+}

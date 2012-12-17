@@ -1,6 +1,0 @@
-{
-  super(context,attrs);
-  mRoot=this;
-  mFromXml=true;
-  initController(context);
-}

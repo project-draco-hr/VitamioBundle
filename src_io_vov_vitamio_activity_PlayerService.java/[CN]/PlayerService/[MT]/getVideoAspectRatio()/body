@@ -1,0 +1,4 @@
+{
+  if (mInitialized)   return mPlayer.getVideoAspectRatio();
+  return 0f;
+}

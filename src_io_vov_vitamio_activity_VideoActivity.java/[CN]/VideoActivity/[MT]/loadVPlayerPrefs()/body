@@ -1,0 +1,8 @@
+{
+  if (!isInitialized())   return;
+  vPlayer.setBuffer(VideoActivity.DEFAULT_BUF_SIZE);
+  vPlayer.setVideoQuality(DEFAULT_VIDEO_QUALITY);
+  vPlayer.setDeinterlace(DEFAULT_DEINTERLACE);
+  vPlayer.setVolume(DEFAULT_STEREO_VOLUME,DEFAULT_STEREO_VOLUME);
+  if (mVideoView != null && isInitialized())   setVideoLayout();
+}

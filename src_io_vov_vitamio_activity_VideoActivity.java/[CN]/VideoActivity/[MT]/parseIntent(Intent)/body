@@ -1,8 +1,15 @@
 {
-  mUri=IntentHelper.getIntentUri(intent);
-  mVideoView=(VideoView)findViewById(R.id.video);
-  mVideoView.setVideoURI(mUri);
-  mVideoView.setVideoTitle(intent.getStringExtra("displayName"));
-  mVideoView.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
-  mVideoView.setMediaController(new MediaController(this));
+  Uri dat=IntentHelper.getIntentUri(i);
+  if (dat == null)   resultFinish(RESULT_FAILED);
+  String datString=dat.toString();
+  if (!datString.equals(dat.toString()))   dat=Uri.parse(datString);
+  mUri=dat;
+  mNeedLock=i.getBooleanExtra("lockScreen",false);
+  mDisplayName=i.getStringExtra("displayName");
+  mFromStart=i.getBooleanExtra("fromStart",false);
+  mSaveUri=i.getBooleanExtra("saveUri",true);
+  mStartPos=i.getFloatExtra("startPosition",-1.0f);
+  mLoopCount=i.getIntExtra("loopCount",1);
+  mParentId=i.getIntExtra("parentId",0);
+  Log.i("L: %b, N: %s, S: %b, P: %f, LP: %d",mNeedLock,mDisplayName,mFromStart,mStartPos,mLoopCount);
 }

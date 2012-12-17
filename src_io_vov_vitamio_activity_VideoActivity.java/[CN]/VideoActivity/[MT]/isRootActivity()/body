@@ -1,0 +1,4 @@
+{
+  ActivityManager activity=(ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+  return activity.getRunningTasks(1).get(0).topActivity.flattenToString().endsWith("me.abitno.vplayer.VideoActivity");
+}

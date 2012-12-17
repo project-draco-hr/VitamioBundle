@@ -1,0 +1,9 @@
+{
+  super.onPause();
+  if (!mCreated)   return;
+  if (isInitialized()) {
+    if (vPlayer != null && vPlayer.isPlaying()) {
+      stopPlayer();
+    }
+  }
+}

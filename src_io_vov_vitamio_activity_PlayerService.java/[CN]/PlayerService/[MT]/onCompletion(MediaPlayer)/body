@@ -1,0 +1,8 @@
+{
+  if (mListener != null) {
+    mListener.onPlaybackComplete();
+  }
+ else {
+    release(true);
+  }
+}

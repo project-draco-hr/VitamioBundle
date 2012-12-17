@@ -1,0 +1,4 @@
+{
+  mVideoSizeKnown=true;
+  if (mListener != null)   mListener.onVideoSizeChanged(arg1,arg2);
+}

@@ -1,0 +1,10 @@
+{
+  mInitialized=true;
+  if (!mFromNotification && mSeekTo > 0 && mSeekTo < 1)   seekTo(mSeekTo);
+  mSeekTo=-1;
+  mListener.onOpenSuccess();
+  if (!mFromNotification) {
+    if (mUri != null)     mSubPaths=getSubFiles(mUri.getPath());
+    if (mSubPaths != null)     setSubPath(FileHelper.getCanonical(new File(mSubPaths[0])));
+  }
+}

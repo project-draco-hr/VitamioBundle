@@ -1,0 +1,4 @@
+{
+  if (isInitialized())   return vPlayer.isPlaying();
+  return false;
+}

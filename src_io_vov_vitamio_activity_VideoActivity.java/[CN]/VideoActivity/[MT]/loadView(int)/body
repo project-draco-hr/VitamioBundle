@@ -1,0 +1,11 @@
+{
+  setContentView(id);
+  mViewRoot=findViewById(R.id.video_root);
+  mVideoView=(VideoView)findViewById(R.id.video);
+  mVideoView.initialize(this,this,false);
+  mVideoLoadingText=(TextView)findViewById(R.id.video_loading_text);
+  mVideoLoadingLayout=findViewById(R.id.video_loading);
+  mLoadingProgressView=mVideoLoadingLayout.findViewById(R.id.video_loading_progress);
+  mLoadingAnimation=AnimationUtils.loadAnimation(VideoActivity.this,R.anim.loading_rotate);
+  getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+}

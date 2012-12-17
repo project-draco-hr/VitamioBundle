@@ -1,0 +1,11 @@
+{
+  if (vPlayer != null) {
+    if (UIUtils.hasICS()) {
+      android.os.Process.killProcess(android.os.Process.myPid());
+    }
+ else {
+      vPlayer.release();
+      vPlayer.releaseContext();
+    }
+  }
+}

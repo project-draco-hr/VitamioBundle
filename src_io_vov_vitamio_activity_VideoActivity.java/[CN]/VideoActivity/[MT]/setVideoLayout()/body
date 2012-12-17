@@ -1,0 +1,3 @@
+{
+  mVideoView.setVideoLayout(mVideoMode,DEFAULT_ASPECT_RATIO,vPlayer.getVideoWidth(),vPlayer.getVideoHeight(),vPlayer.getVideoAspectRatio());
+}

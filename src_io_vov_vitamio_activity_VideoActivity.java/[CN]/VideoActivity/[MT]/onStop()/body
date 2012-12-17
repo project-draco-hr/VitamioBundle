@@ -1,0 +1,11 @@
+{
+  super.onStop();
+  if (!mCreated)   return;
+  if (isInitialized()) {
+    vPlayer.releaseSurface();
+  }
+  if (mServiceConnected) {
+    unbindService(vPlayerServiceConnection);
+    mServiceConnected=false;
+  }
+}

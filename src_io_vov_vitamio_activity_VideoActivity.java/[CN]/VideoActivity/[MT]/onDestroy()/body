@@ -1,0 +1,7 @@
+{
+  super.onDestroy();
+  if (!mCreated)   return;
+  manageReceivers();
+  if (isInitialized() && !vPlayer.isPlaying())   release();
+  if (mMediaController != null)   mMediaController.release();
+}

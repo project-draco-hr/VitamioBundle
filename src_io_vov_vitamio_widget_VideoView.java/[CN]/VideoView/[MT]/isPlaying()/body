@@ -1,3 +1,0 @@
-{
-  return isInPlaybackState() && mMediaPlayer.isPlaying();
-}

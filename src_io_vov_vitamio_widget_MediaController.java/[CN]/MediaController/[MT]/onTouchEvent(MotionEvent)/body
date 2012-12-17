@@ -1,4 +1,5 @@
 {
-  show(sDefaultTimeout);
-  return true;
+  mHandler.removeMessages(MSG_HIDE_SYSTEM_UI);
+  mHandler.sendEmptyMessageDelayed(MSG_HIDE_SYSTEM_UI,DEFAULT_TIME_OUT);
+  return mGestures.onTouchEvent(event) || super.onTouchEvent(event);
 }

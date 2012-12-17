@@ -1,0 +1,14 @@
+{
+  float userRatio=DEFAULT_ASPECT_RATIO;
+  int videoWidth=vPlayer.getVideoWidth();
+  int videoHeight=vPlayer.getVideoHeight();
+  float videoRatio=vPlayer.getVideoAspectRatio();
+  float currentRatio=mVideoView.mVideoHeight / (float)videoHeight;
+  currentRatio+=(scaleFactor - 1);
+  if (videoWidth * currentRatio >= VIDEO_MAXIMUM_WIDTH)   currentRatio=VIDEO_MAXIMUM_WIDTH / (float)videoWidth;
+  if (videoHeight * currentRatio >= VIDEO_MAXIMUM_HEIGHT)   currentRatio=VIDEO_MAXIMUM_HEIGHT / (float)videoHeight;
+  if (currentRatio < 0.5f)   currentRatio=0.5f;
+  mVideoView.mVideoHeight=(int)(videoHeight * currentRatio);
+  mVideoView.setVideoLayout(mVideoMode,userRatio,videoWidth,videoHeight,videoRatio);
+  return currentRatio;
+}

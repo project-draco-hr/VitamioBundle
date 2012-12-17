@@ -1,0 +1,12 @@
+{
+  if (intent != null && intent.hasExtra("state")) {
+    int state=intent.getIntExtra("state",-1);
+    if (state == 0) {
+      mHeadsetPlaying=isPlaying();
+      stopPlayer();
+    }
+ else     if (state == 1) {
+      if (mHeadsetPlaying)       startPlayer();
+    }
+  }
+}

@@ -1,5 +1,0 @@
-{
-  mContext=context;
-  mAM=(AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
-  return true;
-}

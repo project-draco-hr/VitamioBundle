@@ -1,0 +1,11 @@
+{
+  if (mMediaController != null) {
+    mNeedLock=mMediaController.isLocked();
+    mMediaController.release();
+  }
+  mMediaController=new MediaController(this,mNeedLock);
+  mMediaController.setMediaPlayer(this);
+  mMediaController.setAnchorView(mVideoView.getRootView());
+  setFileName();
+  setBatteryLevel();
+}

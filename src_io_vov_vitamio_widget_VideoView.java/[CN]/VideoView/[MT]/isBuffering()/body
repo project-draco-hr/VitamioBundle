@@ -1,4 +1,0 @@
-{
-  if (mMediaPlayer != null)   return mMediaPlayer.isBuffering();
-  return false;
-}

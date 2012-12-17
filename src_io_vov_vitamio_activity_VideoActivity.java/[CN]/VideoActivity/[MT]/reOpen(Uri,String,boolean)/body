@@ -1,0 +1,17 @@
+{
+  if (isInitialized()) {
+    vPlayer.release();
+    vPlayer.releaseContext();
+  }
+  Intent i=getIntent();
+  i.putExtra("lockScreen",mMediaController.isLocked());
+  i.putExtra("startPosition",7.7f);
+  i.putExtra("fromStart",fromStart);
+  i.putExtra("displayName",name);
+  i.setData(path);
+  parseIntent(i);
+  mUri=path;
+  if (mViewRoot != null)   mViewRoot.invalidate();
+  mOpened.set(false);
+  loadView(R.layout.activity_video);
+}

@@ -1,7 +1,22 @@
 {
-  if (!io.vov.vitamio.LibsChecker.checkVitamioLibs(this))   return;
   super.onCreate(savedInstanceState);
+  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+  if (!io.vov.vitamio.LibsChecker.checkVitamioLibs(this))   return;
+  vPlayerServiceConnection=new ServiceConnection(){
+    @Override public void onServiceConnected(    ComponentName name,    IBinder service){
+      vPlayer=((PlayerService.LocalBinder)service).getService();
+      mServiceConnected=true;
+      if (mSurfaceCreated)       vPlayerHandler.sendEmptyMessage(OPEN_FILE);
+    }
+    @Override public void onServiceDisconnected(    ComponentName name){
+      vPlayer=null;
+      mServiceConnected=false;
+    }
+  }
+;
   setVolumeControlStream(AudioManager.STREAM_MUSIC);
-  setContentView(R.layout.activity_video);
   parseIntent(getIntent());
+  loadView(R.layout.activity_video);
+  manageReceivers();
+  mCreated=true;
 }

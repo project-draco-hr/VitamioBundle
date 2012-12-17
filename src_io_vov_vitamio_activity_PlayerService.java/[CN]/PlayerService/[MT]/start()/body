@@ -1,0 +1,6 @@
+{
+  if (mInitialized) {
+    mPlayer.start();
+    setState(STATE_PLAYING);
+  }
+}

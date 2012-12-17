@@ -1,0 +1,26 @@
+{
+  if (!FileHelper.sdAvailable()) {
+    ToastHelper.showToast(this,R.string.file_explorer_sdcard_not_available);
+  }
+ else {
+    Uri imgUri=null;
+    Bitmap bitmap=vPlayer.getCurrentFrame();
+    if (bitmap != null) {
+      File screenshotsDirectory=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + SNAP_SHOT_PATH);
+      if (!screenshotsDirectory.exists()) {
+        screenshotsDirectory.mkdirs();
+      }
+      File savePath=new File(screenshotsDirectory.getPath() + "/" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())+ ".jpg");
+      if (BitmapHelper.saveBitmapToFile(bitmap,savePath.getPath())) {
+        imgUri=Uri.fromFile(savePath);
+      }
+    }
+    if (imgUri != null) {
+      sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,imgUri));
+      ToastHelper.showToast(this,Toast.LENGTH_LONG,getString(R.string.video_screenshot_save_in,imgUri.getPath()));
+    }
+ else {
+      ToastHelper.showToast(this,R.string.video_screenshot_failed);
+    }
+  }
+}

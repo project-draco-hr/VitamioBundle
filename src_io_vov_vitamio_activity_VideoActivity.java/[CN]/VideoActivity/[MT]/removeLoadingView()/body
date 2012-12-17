@@ -1,0 +1,3 @@
+{
+  mVideoLoadingLayout.setVisibility(View.GONE);
+}

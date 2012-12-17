@@ -1,8 +1,0 @@
-{
-  if (mSurfaceHolder == null && mCurrentState == STATE_SUSPEND) {
-    mTargetState=STATE_RESUME;
-  }
- else   if (mCurrentState == STATE_SUSPEND_UNSUPPORTED) {
-    openVideo();
-  }
-}

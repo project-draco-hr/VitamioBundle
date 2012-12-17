@@ -1,0 +1,11 @@
+{
+  Log.i("onSurfaceDestroyed");
+  if (vPlayer != null && vPlayer.isInitialized()) {
+    if (vPlayer.isPlaying()) {
+      vPlayer.stop();
+      vPlayer.setState(PlayerService.STATE_NEED_RESUME);
+    }
+    vPlayer.releaseSurface();
+    if (vPlayer.needResume())     vPlayer.start();
+  }
+}

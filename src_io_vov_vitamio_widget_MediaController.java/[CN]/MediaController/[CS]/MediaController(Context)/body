@@ -1,4 +1,6 @@
 {
   super(context);
-  if (!mFromXml && initController(context))   initFloatingWindow();
+  mContext=(Activity)context;
+  initFloatingWindow();
+  initResources();
 }

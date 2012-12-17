@@ -1,0 +1,18 @@
+{
+  vPlayerHandler.removeMessages(BUFFER_PROGRESS);
+  Intent i=new Intent();
+  i.putExtra("filePath",mUri.toString());
+  if (isInitialized()) {
+    i.putExtra("position",(double)vPlayer.getCurrentPosition() / vPlayer.getDuration());
+    i.putExtra("duration",vPlayer.getDuration());
+  }
+switch (resultCode) {
+case RESULT_FAILED:
+    ToastHelper.showToast(this,Toast.LENGTH_LONG,R.string.video_cannot_play);
+  break;
+case RESULT_CANCELED:
+case RESULT_OK:
+break;
+}
+setResult(resultCode,i);
+}

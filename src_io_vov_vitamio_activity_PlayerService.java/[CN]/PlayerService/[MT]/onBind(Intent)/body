@@ -1,0 +1,4 @@
+{
+  Log.d("BIND OK : " + intent.getPackage());
+  return mBinder;
+}

@@ -1,0 +1,3 @@
+{
+  if (mInitialized)   mPlayer.setVideoQuality(quality);
+}

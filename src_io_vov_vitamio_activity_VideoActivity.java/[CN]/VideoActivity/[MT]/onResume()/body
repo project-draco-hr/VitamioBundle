@@ -1,0 +1,15 @@
+{
+  super.onResume();
+  if (!mCreated)   return;
+  if (isInitialized()) {
+    KeyguardManager keyguardManager=(KeyguardManager)getSystemService(KEYGUARD_SERVICE);
+    if (!keyguardManager.inKeyguardRestrictedInputMode()) {
+      startPlayer();
+    }
+  }
+ else {
+    if (mCloseComplete) {
+      reOpen();
+    }
+  }
+}

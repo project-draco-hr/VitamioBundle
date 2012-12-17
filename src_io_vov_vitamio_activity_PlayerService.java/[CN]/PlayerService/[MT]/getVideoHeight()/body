@@ -1,0 +1,4 @@
+{
+  if (mInitialized)   return mPlayer.getVideoHeight();
+  return 0;
+}

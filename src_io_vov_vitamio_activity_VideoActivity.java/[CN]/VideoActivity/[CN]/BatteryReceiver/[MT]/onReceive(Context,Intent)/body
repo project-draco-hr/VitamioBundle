@@ -1,0 +1,8 @@
+{
+  int level=intent.getIntExtra(BatteryManager.EXTRA_LEVEL,0);
+  int scale=intent.getIntExtra(BatteryManager.EXTRA_SCALE,100);
+  int percent=scale > 0 ? level * 100 / scale : 0;
+  if (percent > 100)   percent=100;
+  mBatteryLevel=String.valueOf(percent) + "%";
+  setBatteryLevel();
+}

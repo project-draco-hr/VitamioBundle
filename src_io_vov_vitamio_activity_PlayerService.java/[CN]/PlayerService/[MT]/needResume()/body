@@ -1,0 +1,3 @@
+{
+  return mInitialized && (mCurrentState == STATE_NEED_RESUME || mCurrentState == STATE_PREPARED);
+}
