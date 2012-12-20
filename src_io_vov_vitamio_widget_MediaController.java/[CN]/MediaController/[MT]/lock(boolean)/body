@@ -8,7 +8,7 @@
   }
  else {
     mLock.setImageResource(R.drawable.mediacontroller_unlock);
-    mMenu.setVisibility(View.VISIBLE);
+    mMenu.setVisibility(View.GONE);
     mControlsButtons.setVisibility(View.VISIBLE);
     mProgress.setEnabled(true);
     if (mScreenLocked != toLock)     setOperationInfo(mContext.getString(R.string.video_screen_unlocked),1000);
