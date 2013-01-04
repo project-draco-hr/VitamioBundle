@@ -1,6 +1,6 @@
 {
   mContext=ctx;
-  mDoubleTapGestureDetector=new GestureDetector(mContext,new DoubleTapGestureListener());
-  mTapGestureDetector=new GestureDetector(mContext,new TapGestureListener());
+  mDoubleTapGestureDetector=new GestureDetectorCompat(mContext,new DoubleTapGestureListener());
+  mTapGestureDetector=new GestureDetectorCompat(mContext,new TapGestureListener());
   mScaleDetector=new ScaleGestureDetector(mContext,new ScaleDetectorListener());
 }
