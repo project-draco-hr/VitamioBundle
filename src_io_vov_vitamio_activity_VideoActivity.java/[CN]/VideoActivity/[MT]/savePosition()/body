@@ -1,0 +1,7 @@
+{
+  if (mSession != null && vPlayer != null && mUri != null) {
+    mSession.put(mUri.toString(),StringHelper.generateTime((int)(0.5 + vPlayer.getCurrentPosition())) + " / " + StringHelper.generateTime(vPlayer.getDuration()));
+    if (mEnd)     mSession.put(mUri + SESSION_LAST_POSITION_SUFIX,1.0f);
+ else     mSession.put(mUri + SESSION_LAST_POSITION_SUFIX,(float)(vPlayer.getCurrentPosition() / (double)vPlayer.getDuration()));
+  }
+}

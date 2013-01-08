@@ -5,6 +5,7 @@
   if (isInitialized()) {
     i.putExtra("position",(double)vPlayer.getCurrentPosition() / vPlayer.getDuration());
     i.putExtra("duration",vPlayer.getDuration());
+    savePosition();
   }
 switch (resultCode) {
 case RESULT_FAILED:
