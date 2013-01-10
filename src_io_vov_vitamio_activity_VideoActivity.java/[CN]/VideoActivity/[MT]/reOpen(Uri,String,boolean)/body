@@ -14,5 +14,4 @@
   mUri=path;
   if (mViewRoot != null)   mViewRoot.invalidate();
   mOpened.set(false);
-  loadView(R.layout.activity_video);
 }
