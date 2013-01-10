@@ -1,5 +1,6 @@
 {
   setContentView(id);
+  getWindow().setBackgroundDrawable(null);
   mViewRoot=findViewById(R.id.video_root);
   mVideoView=(VideoView)findViewById(R.id.video);
   mVideoView.initialize(this,this,false);
