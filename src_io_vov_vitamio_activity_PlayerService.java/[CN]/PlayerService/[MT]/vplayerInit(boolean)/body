@@ -1,5 +1,5 @@
 {
-  mPlayer=new MediaPlayer(PlayerService.this.getApplicationContext(),false);
+  mPlayer=new MediaPlayer(PlayerService.this.getApplicationContext(),isHWCodec);
   mPlayer.setOnHWRenderFailedListener(new OnHWRenderFailedListener(){
     @Override public void onFailed(){
       if (mListener != null)       mListener.onHWRenderFailed();

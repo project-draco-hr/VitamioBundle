@@ -1,0 +1,4 @@
+{
+  if (mInitialized)   return mPlayer.getSubTrack();
+  return 0;
+}

@@ -1,0 +1,4 @@
+{
+  if (mInitialized)   return mPlayer.getSubPath();
+  return null;
+}

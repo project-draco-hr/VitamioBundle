@@ -6,7 +6,7 @@
   }
   Intent i=getIntent();
   i.putExtra("lockScreen",mMediaController.isLocked());
-  i.putExtra("startPosition",(float)mSession.getDouble(mUri + SESSION_LAST_POSITION_SUFIX,7.7f));
+  i.putExtra("startPosition",(float)mSession.getDouble(mUri + VP.SESSION_LAST_POSITION_SUFIX,7.7f));
   i.putExtra("fromStart",fromStart);
   i.putExtra("displayName",name);
   i.setData(path);

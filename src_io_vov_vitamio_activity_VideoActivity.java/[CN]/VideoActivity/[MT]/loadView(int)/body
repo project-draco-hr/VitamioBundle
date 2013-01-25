@@ -3,7 +3,10 @@
   getWindow().setBackgroundDrawable(null);
   mViewRoot=findViewById(R.id.video_root);
   mVideoView=(VideoView)findViewById(R.id.video);
-  mVideoView.initialize(this,this,false);
+  mVideoView.initialize(this,this,mIsHWCodec);
+  mSubtitleContainer=findViewById(R.id.subtitle_container);
+  mSubtitleText=(OutlineTextView)findViewById(R.id.subtitle_text);
+  mSubtitleImage=(ImageView)findViewById(R.id.subtitle_image);
   mVideoLoadingText=(TextView)findViewById(R.id.video_loading_text);
   mVideoLoadingLayout=findViewById(R.id.video_loading);
   mLoadingProgressView=mVideoLoadingLayout.findViewById(R.id.video_loading_progress);

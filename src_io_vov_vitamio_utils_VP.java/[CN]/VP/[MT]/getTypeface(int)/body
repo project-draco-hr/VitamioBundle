@@ -1,0 +1,14 @@
+{
+switch (type) {
+case 0:
+    return Typeface.DEFAULT;
+case 1:
+  return Typeface.SANS_SERIF;
+case 2:
+return Typeface.SERIF;
+case 3:
+return Typeface.MONOSPACE;
+default :
+return DEFAULT_TYPEFACE;
+}
+}

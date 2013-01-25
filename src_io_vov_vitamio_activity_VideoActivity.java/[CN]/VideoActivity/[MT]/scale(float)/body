@@ -1,5 +1,5 @@
 {
-  float userRatio=DEFAULT_ASPECT_RATIO;
+  float userRatio=VP.DEFAULT_ASPECT_RATIO;
   int videoWidth=vPlayer.getVideoWidth();
   int videoHeight=vPlayer.getVideoHeight();
   float videoRatio=vPlayer.getVideoAspectRatio();

@@ -11,5 +11,8 @@
   mStartPos=i.getFloatExtra("startPosition",-1.0f);
   mLoopCount=i.getIntExtra("loopCount",1);
   mParentId=i.getIntExtra("parentId",0);
+  mSubPath=i.getStringExtra("subPath");
+  mSubShown=i.getBooleanExtra("subShown",true);
+  mIsHWCodec=i.getBooleanExtra("hwCodec",false);
   Log.i("L: %b, N: %s, S: %b, P: %f, LP: %d",mNeedLock,mDisplayName,mFromStart,mStartPos,mLoopCount);
 }

@@ -1,5 +1,5 @@
 {
-  if (mPlayer == null)   vplayerInit();
+  if (mPlayer == null)   vplayerInit(isHWCodec);
   mListener=listener;
   mOldUri=mUri;
   mUri=filePath;

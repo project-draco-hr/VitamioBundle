@@ -1,5 +1,7 @@
 {
   super.onStart();
   if (!mCreated)   return;
-  bindService(new Intent(this,PlayerService.class),vPlayerServiceConnection,Context.BIND_AUTO_CREATE);
+  Intent serviceIntent=new Intent(this,PlayerService.class);
+  serviceIntent.putExtra("isHWCodec",mIsHWCodec);
+  bindService(serviceIntent,vPlayerServiceConnection,Context.BIND_AUTO_CREATE);
 }

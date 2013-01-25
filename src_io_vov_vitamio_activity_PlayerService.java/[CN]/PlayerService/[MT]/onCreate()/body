@@ -3,11 +3,4 @@
   mInitialized=false;
   mTelephonyManager=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
   mTelephonyManager.listen(mPhoneListener,PhoneStateListener.LISTEN_CALL_STATE);
-  if (VitamioInstaller.isNativeLibsInited(this)) {
-    vplayerInit();
-  }
- else {
-    stopSelf();
-  }
-  Log.d("CREATE OK");
 }

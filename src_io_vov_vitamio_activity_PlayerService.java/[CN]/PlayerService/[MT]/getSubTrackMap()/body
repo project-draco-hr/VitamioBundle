@@ -1,0 +1,9 @@
+{
+  if (!mInitialized)   return null;
+  String enc=VP.DEFAULT_SUB_ENCODING;
+  HashMap<String,Object> trackMap=new HashMap<String,Object>();
+  HashMap<String,Integer> m=mPlayer.getSubTrackMap(enc.equals(VP.DEFAULT_SUB_ENCODING) ? getMetaEncoding() : enc);
+  if (m != null)   for (  String k : m.keySet())   trackMap.put(k,m.get(k));
+  if (mSubPaths != null)   for (  String s : mSubPaths)   trackMap.put(new File(s).getName(),s);
+  return trackMap;
+}

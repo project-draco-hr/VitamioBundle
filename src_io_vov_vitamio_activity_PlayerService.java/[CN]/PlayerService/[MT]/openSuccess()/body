@@ -4,7 +4,9 @@
   mSeekTo=-1;
   mListener.onOpenSuccess();
   if (!mFromNotification) {
+    setSubEncoding(VP.DEFAULT_SUB_ENCODING);
     if (mUri != null)     mSubPaths=getSubFiles(mUri.getPath());
     if (mSubPaths != null)     setSubPath(FileHelper.getCanonical(new File(mSubPaths[0])));
+    setSubShown(VP.DEFAULT_SUB_SHOWN);
   }
 }
