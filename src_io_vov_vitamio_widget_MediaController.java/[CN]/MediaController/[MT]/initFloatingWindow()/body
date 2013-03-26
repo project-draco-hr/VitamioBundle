@@ -1,0 +1,7 @@
+{
+  mWindow=new PopupWindow(mContext);
+  mWindow.setFocusable(false);
+  mWindow.setBackgroundDrawable(null);
+  mWindow.setOutsideTouchable(true);
+  mAnimStyle=android.R.style.Animation;
+}

@@ -1,0 +1,4 @@
+{
+  if (isInPlaybackState() && mMediaController != null)   toggleMediaControlsVisiblity();
+  return false;
+}

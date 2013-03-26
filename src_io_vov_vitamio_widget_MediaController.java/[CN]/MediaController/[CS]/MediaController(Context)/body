@@ -1,0 +1,4 @@
+{
+  super(context);
+  if (!mFromXml && initController(context))   initFloatingWindow();
+}

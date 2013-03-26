@@ -1,0 +1,6 @@
+{
+  super.setTypeface(tf,style);
+  requestLayout();
+  invalidate();
+  initPaint();
+}

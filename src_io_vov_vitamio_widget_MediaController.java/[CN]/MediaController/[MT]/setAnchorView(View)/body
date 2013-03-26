@@ -1,0 +1,11 @@
+{
+  mAnchor=view;
+  if (!mFromXml) {
+    removeAllViews();
+    mRoot=makeControllerView();
+    mWindow.setContentView(mRoot);
+    mWindow.setWidth(LayoutParams.MATCH_PARENT);
+    mWindow.setHeight(LayoutParams.WRAP_CONTENT);
+  }
+  initControllerView(mRoot);
+}

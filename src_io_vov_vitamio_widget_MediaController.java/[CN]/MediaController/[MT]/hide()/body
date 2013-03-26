@@ -1,0 +1,15 @@
+{
+  if (mAnchor == null)   return;
+  if (mShowing) {
+    try {
+      mHandler.removeMessages(SHOW_PROGRESS);
+      if (mFromXml)       setVisibility(View.GONE);
+ else       mWindow.dismiss();
+    }
+ catch (    IllegalArgumentException ex) {
+      Log.d("MediaController already removed");
+    }
+    mShowing=false;
+    if (mHiddenListener != null)     mHiddenListener.onHidden();
+  }
+}
