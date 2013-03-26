@@ -1,0 +1,6 @@
+{
+  super(context);
+  mContext=(Activity)context;
+  initFloatingWindow();
+  initResources();
+}

@@ -1,0 +1,13 @@
+{
+  Window window=mContext.getWindow();
+  WindowManager.LayoutParams layoutParams=window.getAttributes();
+  float val=showButtons ? -1 : 0;
+  try {
+    Field buttonBrightness=layoutParams.getClass().getField("buttonBrightness");
+    buttonBrightness.set(layoutParams,val);
+  }
+ catch (  Exception e) {
+    Log.e("dimButtons",e);
+  }
+  window.setAttributes(layoutParams);
+}

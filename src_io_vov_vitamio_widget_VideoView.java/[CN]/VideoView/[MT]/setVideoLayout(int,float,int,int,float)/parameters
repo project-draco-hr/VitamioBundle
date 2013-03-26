@@ -1,0 +1,5 @@
+int layout
+float userRatio
+int videoWidth
+int videoHeight
+float videoRatio

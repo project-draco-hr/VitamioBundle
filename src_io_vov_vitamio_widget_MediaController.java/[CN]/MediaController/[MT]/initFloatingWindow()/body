@@ -1,0 +1,6 @@
+{
+  mWindow=new PopupWindow(mContext);
+  mWindow.setFocusable(true);
+  mWindow.setBackgroundDrawable(null);
+  mWindow.setOutsideTouchable(true);
+}

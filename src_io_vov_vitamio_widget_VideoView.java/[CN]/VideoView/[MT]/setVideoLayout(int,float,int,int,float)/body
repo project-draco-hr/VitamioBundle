@@ -1,0 +1,4 @@
+{
+  mVideoMode=layout;
+  setSurfaceLayout(userRatio,videoWidth,videoHeight,videoRatio);
+}

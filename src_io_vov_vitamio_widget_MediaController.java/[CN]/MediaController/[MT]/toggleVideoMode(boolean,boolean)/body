@@ -1,0 +1,29 @@
+{
+  if (larger) {
+    if (mVideoMode < VideoView.VIDEO_LAYOUT_ZOOM)     mVideoMode++;
+ else     if (recycle)     mVideoMode=VideoView.VIDEO_LAYOUT_ORIGIN;
+  }
+ else {
+    if (mVideoMode > VideoView.VIDEO_LAYOUT_ORIGIN)     mVideoMode--;
+ else     if (recycle)     mVideoMode=VideoView.VIDEO_LAYOUT_ZOOM;
+  }
+switch (mVideoMode) {
+case VideoView.VIDEO_LAYOUT_ORIGIN:
+    setOperationInfo(mContext.getString(R.string.video_original),500);
+  mScreenToggle.setImageResource(R.drawable.mediacontroller_sreen_size_100);
+break;
+case VideoView.VIDEO_LAYOUT_SCALE:
+setOperationInfo(mContext.getString(R.string.video_fit_screen),500);
+mScreenToggle.setImageResource(R.drawable.mediacontroller_screen_fit);
+break;
+case VideoView.VIDEO_LAYOUT_STRETCH:
+setOperationInfo(mContext.getString(R.string.video_stretch),500);
+mScreenToggle.setImageResource(R.drawable.mediacontroller_screen_size);
+break;
+case VideoView.VIDEO_LAYOUT_ZOOM:
+setOperationInfo(mContext.getString(R.string.video_crop),500);
+mScreenToggle.setImageResource(R.drawable.mediacontroller_sreen_size_crop);
+break;
+}
+mPlayer.toggleVideoMode(mVideoMode);
+}

@@ -1,0 +1,40 @@
+{
+  int keyCode=event.getKeyCode();
+switch (keyCode) {
+case KeyEvent.KEYCODE_VOLUME_MUTE:
+    return super.dispatchKeyEvent(event);
+case KeyEvent.KEYCODE_VOLUME_UP:
+case KeyEvent.KEYCODE_VOLUME_DOWN:
+  mVolume=mAM.getStreamVolume(AudioManager.STREAM_MUSIC);
+int step=keyCode == KeyEvent.KEYCODE_VOLUME_UP ? 1 : -1;
+setVolume(mVolume + step);
+mHandler.removeMessages(MSG_HIDE_OPERATION_VOLLUM);
+mHandler.sendEmptyMessageDelayed(MSG_HIDE_OPERATION_VOLLUM,500);
+return true;
+}
+if (isLocked()) {
+show();
+return true;
+}
+if (event.getRepeatCount() == 0 && (keyCode == KeyEvent.KEYCODE_HEADSETHOOK || keyCode == KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE || keyCode == KeyEvent.KEYCODE_SPACE)) {
+doPauseResume();
+show(DEFAULT_TIME_OUT);
+return true;
+}
+ else if (keyCode == KeyEvent.KEYCODE_MEDIA_STOP) {
+if (mPlayer.isPlaying()) {
+mPlayer.pause();
+updatePausePlay();
+}
+return true;
+}
+ else if (keyCode == KeyEvent.KEYCODE_BACK) {
+release();
+mPlayer.stop();
+return true;
+}
+ else {
+show(DEFAULT_TIME_OUT);
+}
+return super.dispatchKeyEvent(event);
+}

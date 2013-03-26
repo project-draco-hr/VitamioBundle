@@ -1,0 +1,19 @@
+{
+  if (timeout != 0) {
+    mHandler.removeMessages(MSG_FADE_OUT);
+    mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_FADE_OUT),timeout);
+  }
+  if (!mShowing) {
+    showButtons(true);
+    mHandler.removeMessages(MSG_HIDE_SYSTEM_UI);
+    showSystemUi(true);
+    mPauseButton.requestFocus();
+    mControlsLayout.startAnimation(mAnimSlideInTop);
+    mSystemInfoLayout.startAnimation(mAnimSlideInBottom);
+    mMediaController.setVisibility(View.VISIBLE);
+    updatePausePlay();
+    mHandler.sendEmptyMessage(MSG_TIME_TICK);
+    mHandler.sendEmptyMessage(MSG_SHOW_PROGRESS);
+    mShowing=true;
+  }
+}

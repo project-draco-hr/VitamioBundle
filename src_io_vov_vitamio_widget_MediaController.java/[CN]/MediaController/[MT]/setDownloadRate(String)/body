@@ -1,0 +1,4 @@
+{
+  mDownloadRate.setVisibility(View.VISIBLE);
+  mDownloadRate.setText(rate);
+}

@@ -1,0 +1,6 @@
+{
+  if (UIUtils.hasHoneycomb()) {
+    int flag=visible ? 0 : View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LOW_PROFILE;
+    mRoot.setSystemUiVisibility(flag);
+  }
+}

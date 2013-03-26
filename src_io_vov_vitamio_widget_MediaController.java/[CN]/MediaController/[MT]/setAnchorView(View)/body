@@ -1,0 +1,8 @@
+{
+  mAnchor=view;
+  int[] location=new int[2];
+  mAnchor.getLocationOnScreen(location);
+  Rect anchorRect=new Rect(location[0],location[1],location[0] + mAnchor.getWidth(),location[1] + mAnchor.getHeight());
+  setWindowLayoutType();
+  mWindow.showAtLocation(mAnchor,Gravity.NO_GRAVITY,anchorRect.left,anchorRect.bottom);
+}

@@ -1,0 +1,41 @@
+{
+  mHandler=new MHandler(this);
+  mAM=(AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
+  mMaxVolume=mAM.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+  mGestures=new CommonGestures(mContext);
+  mGestures.setTouchListener(mTouchListener,true);
+  mAnimSlideOutBottom=AnimationUtils.loadAnimation(mContext,R.anim.slide_out_bottom);
+  mAnimSlideOutTop=AnimationUtils.loadAnimation(mContext,R.anim.slide_out_top);
+  mAnimSlideInBottom=AnimationUtils.loadAnimation(mContext,R.anim.slide_in_bottom);
+  mAnimSlideInTop=AnimationUtils.loadAnimation(mContext,R.anim.slide_in_top);
+  mAnimSlideOutBottom.setAnimationListener(new AnimationListener(){
+    @Override public void onAnimationStart(    Animation animation){
+    }
+    @Override public void onAnimationEnd(    Animation animation){
+      mMediaController.setVisibility(View.GONE);
+      showButtons(false);
+      mHandler.removeMessages(MSG_HIDE_SYSTEM_UI);
+      mHandler.sendEmptyMessageDelayed(MSG_HIDE_SYSTEM_UI,DEFAULT_TIME_OUT);
+    }
+    @Override public void onAnimationRepeat(    Animation animation){
+    }
+  }
+);
+  removeAllViews();
+  mRoot=inflateLayout();
+  mWindow.setContentView(mRoot);
+  mWindow.setWidth(android.view.ViewGroup.LayoutParams.MATCH_PARENT);
+  mWindow.setHeight(android.view.ViewGroup.LayoutParams.MATCH_PARENT);
+  findViewItems(mRoot);
+  showSystemUi(false);
+  if (UIUtils.hasHoneycomb()) {
+    mRoot.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener(){
+      public void onSystemUiVisibilityChange(      int visibility){
+        if ((visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) == 0) {
+          mHandler.sendEmptyMessageDelayed(MSG_HIDE_SYSTEM_UI,DEFAULT_TIME_OUT);
+        }
+      }
+    }
+);
+  }
+}
