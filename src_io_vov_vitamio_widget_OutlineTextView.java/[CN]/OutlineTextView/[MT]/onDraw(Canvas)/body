@@ -1,6 +1,0 @@
-{
-  Layout layout=new StaticLayout(getText(),mTextPaintOutline,getWidth(),Layout.Alignment.ALIGN_CENTER,mSpacingMult,mSpacingAdd,mIncludePad);
-  layout.draw(canvas);
-  layout=new StaticLayout(getText(),mTextPaint,getWidth(),Layout.Alignment.ALIGN_CENTER,mSpacingMult,mSpacingAdd,mIncludePad);
-  layout.draw(canvas);
-}

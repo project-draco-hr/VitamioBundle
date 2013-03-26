@@ -1,8 +1,0 @@
-{
-  super.setShadowLayer(radius,dx,dy,color);
-  mBorderSize=radius;
-  mBorderColor=color;
-  requestLayout();
-  invalidate();
-  initPaint();
-}

@@ -1,6 +1,0 @@
-{
-  super.setTextSize(size);
-  requestLayout();
-  invalidate();
-  initPaint();
-}

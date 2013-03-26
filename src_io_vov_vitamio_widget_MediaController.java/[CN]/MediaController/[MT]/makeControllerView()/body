@@ -1,3 +1,0 @@
-{
-  return ((LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.mediacontroller,this);
-}

@@ -1,3 +1,0 @@
-{
-  if (mMediaPlayer != null)   mMediaPlayer.setVideoQuality(quality);
-}

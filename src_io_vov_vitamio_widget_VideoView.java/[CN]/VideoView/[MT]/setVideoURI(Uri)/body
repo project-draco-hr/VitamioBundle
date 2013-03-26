@@ -1,7 +1,0 @@
-{
-  mUri=uri;
-  mSeekWhenPrepared=0;
-  openVideo();
-  requestLayout();
-  invalidate();
-}
