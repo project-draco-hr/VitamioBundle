@@ -1,0 +1,5 @@
+{
+  int width=getDefaultSize(mVideoWidth,widthMeasureSpec);
+  int height=getDefaultSize(mVideoHeight,heightMeasureSpec);
+  setMeasuredDimension(width,height);
+}

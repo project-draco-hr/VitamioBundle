@@ -1,6 +1,0 @@
-{
-  mOperationInfo.setText(info);
-  mOperationInfo.setVisibility(View.VISIBLE);
-  mHandler.removeMessages(MSG_HIDE_OPERATION_INFO);
-  mHandler.sendEmptyMessageDelayed(MSG_HIDE_OPERATION_INFO,time);
-}

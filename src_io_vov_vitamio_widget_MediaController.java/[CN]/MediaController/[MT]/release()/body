@@ -1,6 +1,0 @@
-{
-  if (mWindow != null) {
-    mWindow.dismiss();
-    mWindow=null;
-  }
-}

@@ -1,5 +1,0 @@
-{
-  this(context);
-  mScreenLocked=locked;
-  lock(mScreenLocked);
-}

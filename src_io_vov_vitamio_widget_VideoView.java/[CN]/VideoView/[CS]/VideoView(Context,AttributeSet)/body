@@ -1,4 +1,3 @@
 {
-  super(context,attrs);
-  getHolder().addCallback(mCallback);
+  this(context,attrs,0);
 }

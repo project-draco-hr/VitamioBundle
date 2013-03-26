@@ -1,6 +1,0 @@
-{
-  if (v > mMaxVolume)   v=mMaxVolume;
- else   if (v < 0)   v=0;
-  mAM.setStreamVolume(AudioManager.STREAM_MUSIC,v,0);
-  setVolumeScale((float)v / mMaxVolume);
-}

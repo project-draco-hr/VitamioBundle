@@ -1,0 +1,6 @@
+{
+  if (mPauseButton != null)   mPauseButton.setEnabled(enabled);
+  if (mProgress != null)   mProgress.setEnabled(enabled);
+  disableUnsupportedButtons();
+  super.setEnabled(enabled);
+}

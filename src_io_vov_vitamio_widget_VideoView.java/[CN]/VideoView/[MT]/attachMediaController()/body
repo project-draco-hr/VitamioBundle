@@ -1,0 +1,13 @@
+{
+  if (mMediaPlayer != null && mMediaController != null) {
+    mMediaController.setMediaPlayer(this);
+    View anchorView=this.getParent() instanceof View ? (View)this.getParent() : this;
+    mMediaController.setAnchorView(anchorView);
+    mMediaController.setEnabled(isInPlaybackState());
+    if (mUri != null) {
+      List<String> paths=mUri.getPathSegments();
+      String name=paths == null || paths.isEmpty() ? "null" : paths.get(paths.size() - 1);
+      mMediaController.setFileName(name);
+    }
+  }
+}

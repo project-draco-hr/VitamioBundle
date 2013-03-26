@@ -1,8 +1,0 @@
-{
-  mVolLumBg.setImageResource(bgID);
-  mOperationInfo.setVisibility(View.GONE);
-  mOperationVolLum.setVisibility(View.VISIBLE);
-  ViewGroup.LayoutParams lp=mVolLumNum.getLayoutParams();
-  lp.width=(int)(findViewById(R.id.operation_full).getLayoutParams().width * scale);
-  mVolLumNum.setLayoutParams(lp);
-}

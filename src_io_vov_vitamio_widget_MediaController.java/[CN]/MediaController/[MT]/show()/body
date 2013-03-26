@@ -1,3 +1,3 @@
 {
-  show(DEFAULT_TIME_OUT);
+  show(sDefaultTimeout);
 }
