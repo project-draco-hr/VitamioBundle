@@ -1,9 +1,0 @@
-{
-  applyResult(resultCode);
-  if (UIUtils.hasICS() && resultCode != RESULT_FAILED) {
-    android.os.Process.killProcess(android.os.Process.myPid());
-  }
- else {
-    finish();
-  }
-}

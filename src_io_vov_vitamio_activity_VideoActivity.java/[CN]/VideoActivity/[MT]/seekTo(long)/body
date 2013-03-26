@@ -1,3 +1,0 @@
-{
-  if (isInitialized())   vPlayer.seekTo((float)((double)arg0 / vPlayer.getDuration()));
-}

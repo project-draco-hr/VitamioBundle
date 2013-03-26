@@ -1,4 +1,0 @@
-{
-  show(DEFAULT_TIME_OUT);
-  return false;
-}

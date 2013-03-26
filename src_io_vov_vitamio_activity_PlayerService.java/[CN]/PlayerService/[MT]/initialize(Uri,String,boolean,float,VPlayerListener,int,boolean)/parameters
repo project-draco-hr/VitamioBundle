@@ -1,7 +1,0 @@
-Uri filePath
-String displayName
-boolean saveUri
-float startPos
-VPlayerListener listener
-int parentId
-boolean isHWCodec

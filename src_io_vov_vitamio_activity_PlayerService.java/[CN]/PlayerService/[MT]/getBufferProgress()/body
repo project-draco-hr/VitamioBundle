@@ -1,4 +1,0 @@
-{
-  if (mInitialized)   return mPlayer.getBufferProgress();
-  return 0f;
-}

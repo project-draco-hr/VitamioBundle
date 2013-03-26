@@ -1,4 +1,0 @@
-{
-  if (mInitialized)   return mPlayer.getCurrentPosition();
-  return 0;
-}

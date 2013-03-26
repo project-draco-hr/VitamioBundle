@@ -1,4 +1,0 @@
-{
-  mListener.onOpenFailed();
-  return true;
-}

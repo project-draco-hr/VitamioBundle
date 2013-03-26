@@ -1,5 +1,0 @@
-{
-  if (isInitialized()) {
-    vPlayer.stop();
-  }
-}

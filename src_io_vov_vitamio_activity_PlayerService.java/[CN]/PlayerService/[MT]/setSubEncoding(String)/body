@@ -1,6 +1,0 @@
-{
-  if (mInitialized) {
-    String enc=encoding.equals(VP.DEFAULT_SUB_ENCODING) ? null : encoding;
-    mPlayer.setSubEncoding(enc);
-  }
-}

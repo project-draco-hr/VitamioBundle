@@ -1,3 +1,0 @@
-{
-  if (mMediaController != null)   mMediaController.setBatteryLevel(mBatteryLevel);
-}

@@ -1,5 +1,0 @@
-{
-  if (!mInitialized)   return null;
-  String enc=VP.DEFAULT_META_ENCODING;
-  return mPlayer.getAudioTrackMap(enc.equals(VP.DEFAULT_META_ENCODING) ? getMetaEncoding() : enc);
-}

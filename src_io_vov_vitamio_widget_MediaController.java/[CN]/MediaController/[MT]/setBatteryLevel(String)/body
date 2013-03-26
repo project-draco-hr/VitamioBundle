@@ -1,4 +1,0 @@
-{
-  mBatteryLevel.setVisibility(View.VISIBLE);
-  mBatteryLevel.setText(level);
-}

@@ -1,3 +1,0 @@
-{
-  this.mc=new WeakReference<MediaController>(mc);
-}

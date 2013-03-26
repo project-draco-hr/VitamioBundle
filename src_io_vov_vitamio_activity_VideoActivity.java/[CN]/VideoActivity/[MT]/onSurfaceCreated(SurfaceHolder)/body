@@ -1,6 +1,0 @@
-{
-  Log.i("onSurfaceCreated");
-  mSurfaceCreated=true;
-  if (mServiceConnected)   vPlayerHandler.sendEmptyMessage(OPEN_FILE);
-  if (vPlayer != null)   vPlayer.setDisplay(holder);
-}

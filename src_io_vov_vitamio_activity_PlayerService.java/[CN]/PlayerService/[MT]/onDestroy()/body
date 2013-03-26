@@ -1,5 +1,0 @@
-{
-  super.onDestroy();
-  release(true);
-  releaseContext();
-}

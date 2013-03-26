@@ -1,4 +1,0 @@
-{
-  if (mInitialized)   return mPlayer.getDuration();
-  return 0;
-}

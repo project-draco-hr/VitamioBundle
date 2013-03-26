@@ -1,4 +1,0 @@
-{
-  if (isInitialized())   return (int)(vPlayer.getBufferProgress() * 100);
-  return 0;
-}

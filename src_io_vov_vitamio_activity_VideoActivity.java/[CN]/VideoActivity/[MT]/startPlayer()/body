@@ -1,8 +1,0 @@
-{
-  if (isInitialized() && mScreenReceiver.screenOn && !vPlayer.isBuffering()) {
-    Log.i("VideoActivity#startPlayer");
-    if (!vPlayer.isPlaying()) {
-      vPlayer.start();
-    }
-  }
-}

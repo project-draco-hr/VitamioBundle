@@ -1,7 +1,0 @@
-{
-  if (isInitialized()) {
-    setVideoLayout();
-    attachMediaController();
-  }
-  super.onConfigurationChanged(newConfig);
-}

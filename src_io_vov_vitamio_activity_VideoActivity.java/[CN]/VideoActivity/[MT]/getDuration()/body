@@ -1,4 +1,0 @@
-{
-  if (isInitialized())   return vPlayer.getDuration();
-  return 0;
-}

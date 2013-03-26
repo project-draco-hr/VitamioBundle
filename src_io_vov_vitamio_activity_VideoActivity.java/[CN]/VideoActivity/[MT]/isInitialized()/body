@@ -1,3 +1,0 @@
-{
-  return (mCreated && vPlayer != null && vPlayer.isInitialized());
-}

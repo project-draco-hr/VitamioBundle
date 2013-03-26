@@ -1,6 +1,0 @@
-{
-  super.onCreate();
-  mInitialized=false;
-  mTelephonyManager=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-  mTelephonyManager.listen(mPhoneListener,PhoneStateListener.LISTEN_CALL_STATE);
-}

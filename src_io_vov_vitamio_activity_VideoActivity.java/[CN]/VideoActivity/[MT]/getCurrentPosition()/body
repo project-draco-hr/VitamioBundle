@@ -1,4 +1,0 @@
-{
-  if (isInitialized())   return vPlayer.getCurrentPosition();
-  return (long)(getStartPosition() * vPlayer.getDuration());
-}

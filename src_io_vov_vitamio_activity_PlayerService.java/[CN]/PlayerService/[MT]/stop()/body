@@ -1,5 +1,0 @@
-{
-  if (mInitialized) {
-    mPlayer.pause();
-  }
-}

@@ -1,4 +1,0 @@
-{
-  mSurfaceHolder=surface;
-  if (mPlayer != null)   mPlayer.setDisplay(surface);
-}

@@ -1,6 +1,0 @@
-{
-  if (mVideoLoadingLayout != null && mLoadingProgressView != null) {
-    if (visibility == View.VISIBLE)     mLoadingProgressView.startAnimation(mLoadingAnimation);
-    mVideoLoadingLayout.setVisibility(visibility);
-  }
-}

@@ -1,7 +1,0 @@
-{
-  mActivity=activity;
-  mListener=l;
-  if (mSurfaceHolder == null)   mSurfaceHolder=getHolder();
-  if (push)   getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
- else   getHolder().setType(SurfaceHolder.SURFACE_TYPE_NORMAL);
-}

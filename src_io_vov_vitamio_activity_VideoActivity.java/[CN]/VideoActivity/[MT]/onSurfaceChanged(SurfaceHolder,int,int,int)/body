@@ -1,6 +1,0 @@
-{
-  if (vPlayer != null) {
-    vPlayer.setDisplay(holder);
-    setVideoLayout();
-  }
-}

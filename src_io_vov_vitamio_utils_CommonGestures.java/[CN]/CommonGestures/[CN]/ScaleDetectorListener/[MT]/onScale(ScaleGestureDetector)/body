@@ -1,4 +1,0 @@
-{
-  if (mListener != null && mGestureEnabled)   mListener.onScale(detector.getScaleFactor(),SCALE_STATE_SCALEING);
-  return true;
-}

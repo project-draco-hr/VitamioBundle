@@ -1,9 +1,0 @@
-{
-  ArrayList<String> files=new ArrayList<String>();
-  for (  String ext : MediaPlayer.SUB_TYPES) {
-    File s=new File(videoPath.substring(0,videoPath.lastIndexOf('.') > 0 ? videoPath.lastIndexOf('.') : videoPath.length()) + ext);
-    if (s.exists() && s.isFile() && s.canRead())     files.add(s.getAbsolutePath());
-  }
-  if (files.isEmpty())   return null;
- else   return files.toArray(new String[files.size()]);
-}

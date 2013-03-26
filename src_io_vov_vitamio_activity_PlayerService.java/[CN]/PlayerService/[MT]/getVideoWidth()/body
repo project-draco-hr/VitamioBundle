@@ -1,4 +1,0 @@
-{
-  if (mInitialized)   return mPlayer.getVideoWidth();
-  return 0;
-}
