@@ -1,0 +1,22 @@
+{
+  SparseArray<String> trackSparse=new SparseArray<String>();
+  String trackString;
+  int trackNum;
+  try {
+    trackString=new String(tracks,encoding);
+  }
+ catch (  Exception e) {
+    Log.e("getTrackMap exception");
+    trackString=new String(tracks);
+  }
+  for (  String s : trackString.split("!#!")) {
+    try {
+      if (s.contains("."))       trackNum=Integer.parseInt(s.split("\\.")[0]);
+ else       trackNum=Integer.parseInt(s);
+      trackSparse.put(trackNum,s);
+    }
+ catch (    NumberFormatException e) {
+    }
+  }
+  return trackSparse;
+}

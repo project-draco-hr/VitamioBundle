@@ -1,0 +1,10 @@
+{
+  if (mEventHandler != null) {
+    Message m=mEventHandler.obtainMessage(MEDIA_CACHING_UPDATE);
+    Bundle b=m.getData();
+    b.putInt(MEDIA_CACHING_TYPE,type);
+    b.putInt(MEDIA_CACHING_INFO,info);
+    b.putLongArray(MEDIA_CACHING_SEGMENTS,segments);
+    mEventHandler.sendMessage(m);
+  }
+}

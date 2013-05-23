@@ -1,0 +1,4 @@
+{
+  if (mMediaPlayer != null)   return mMediaPlayer.getTimedTextTrack();
+  return -1;
+}

@@ -1,0 +1,5 @@
+{
+  mEGLConfigChooser=new SimpleEGLConfigChooser();
+  mEGLContextFactory=new EGLContextFactory();
+  mEGLWindowSurfaceFactory=new EGLWindowSurfaceFactory();
+}

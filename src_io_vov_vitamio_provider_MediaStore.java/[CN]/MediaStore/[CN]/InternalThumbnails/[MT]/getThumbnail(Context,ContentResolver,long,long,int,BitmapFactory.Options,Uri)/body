@@ -1,0 +1,59 @@
+{
+  Bitmap bitmap=null;
+  MiniThumbFile thumbFile=MiniThumbFile.instance(baseUri);
+  long magic=thumbFile.getMagic(origId);
+  if (magic != 0) {
+    if (kind == MICRO_KIND) {
+synchronized (sThumbBufLock) {
+        if (sThumbBuf == null)         sThumbBuf=new byte[MiniThumbFile.BYTES_PER_MINTHUMB];
+        if (thumbFile.getMiniThumbFromFile(origId,sThumbBuf) != null) {
+          bitmap=BitmapFactory.decodeByteArray(sThumbBuf,0,sThumbBuf.length);
+          if (bitmap == null)           Log.d("couldn't decode byte array.");
+        }
+      }
+      return bitmap;
+    }
+ else     if (kind == MINI_KIND) {
+      String column="video_id=";
+      Cursor c=null;
+      try {
+        c=cr.query(baseUri,PROJECTION,column + origId,null,null);
+        if (c != null && c.moveToFirst()) {
+          bitmap=getMiniThumbFromFile(c,baseUri,cr,options);
+          if (bitmap != null)           return bitmap;
+        }
+      }
+  finally {
+        if (c != null)         c.close();
+      }
+    }
+  }
+  Cursor c=null;
+  try {
+    Uri blockingUri=baseUri.buildUpon().appendQueryParameter("blocking","1").appendQueryParameter("orig_id",String.valueOf(origId)).appendQueryParameter("group_id",String.valueOf(groupId)).build();
+    c=cr.query(blockingUri,PROJECTION,null,null,null);
+    if (c == null)     return null;
+    if (kind == MICRO_KIND) {
+synchronized (sThumbBufLock) {
+        if (sThumbBuf == null)         sThumbBuf=new byte[MiniThumbFile.BYTES_PER_MINTHUMB];
+        if (thumbFile.getMiniThumbFromFile(origId,sThumbBuf) != null) {
+          bitmap=BitmapFactory.decodeByteArray(sThumbBuf,0,sThumbBuf.length);
+          if (bitmap == null)           Log.d("couldn't decode byte array.");
+        }
+      }
+    }
+ else     if (kind == MINI_KIND) {
+      if (c.moveToFirst())       bitmap=getMiniThumbFromFile(c,baseUri,cr,options);
+    }
+ else {
+      throw new IllegalArgumentException("Unsupported kind: " + kind);
+    }
+  }
+ catch (  SQLiteException ex) {
+    Log.e("getThumbnail",ex);
+  }
+ finally {
+    if (c != null)     c.close();
+  }
+  return bitmap;
+}

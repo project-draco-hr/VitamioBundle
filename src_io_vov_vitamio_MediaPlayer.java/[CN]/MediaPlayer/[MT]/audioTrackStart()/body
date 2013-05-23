@@ -1,0 +1,3 @@
+{
+  if (mAudioTrack != null && mAudioTrack.getState() == AudioTrack.STATE_INITIALIZED && mAudioTrack.getPlayState() != AudioTrack.PLAYSTATE_PLAYING)   mAudioTrack.play();
+}

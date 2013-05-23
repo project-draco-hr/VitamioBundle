@@ -1,0 +1,33 @@
+{
+  RandomAccessFile r=miniThumbDataFile();
+  if (r == null)   return null;
+  long pos=id * BYTES_PER_MINTHUMB;
+  FileLock lock=null;
+  try {
+    mBuffer.clear();
+    lock=mChannel.lock(pos,BYTES_PER_MINTHUMB,true);
+    int size=mChannel.read(mBuffer,pos);
+    if (size > 1 + 8 + 4) {
+      mBuffer.position(9);
+      int length=mBuffer.getInt();
+      if (size >= 1 + 8 + 4+ length && data.length >= length) {
+        mBuffer.get(data,0,length);
+        return data;
+      }
+    }
+  }
+ catch (  IOException ex) {
+    Log.e("got exception when reading thumbnail id = %d, exception: %s",id,ex.getMessage());
+  }
+catch (  RuntimeException ex) {
+    Log.e("Got exception when reading thumbnail, id = %d, disk full or mount read-only? %s",id,ex.getClass().toString());
+  }
+ finally {
+    try {
+      if (lock != null)       lock.release();
+    }
+ catch (    IOException ex) {
+    }
+  }
+  return null;
+}

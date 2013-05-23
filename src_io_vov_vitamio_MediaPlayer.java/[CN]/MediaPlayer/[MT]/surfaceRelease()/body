@@ -1,0 +1,7 @@
+{
+synchronized (this) {
+    mLocalSurface=null;
+    mBitmap=null;
+    mByteBuffer=null;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return Uri.parse(CONTENT_AUTHORITY_SLASH + MEDIA_SCANNER_VOLUME);
+}

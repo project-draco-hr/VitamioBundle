@@ -1,0 +1,27 @@
+{
+  long begin=System.currentTimeMillis();
+  final int version=ContextUtils.getVersionCode(ctx);
+  Log.d("loadLibs start " + version);
+  File lock=new File(getLibraryPath() + LIBS_LOCK);
+  if (lock.exists())   lock.delete();
+  String libPath=copyCompressedLib(ctx,rawID,"libarm.so");
+  Log.d("copyCompressedLib time: " + (System.currentTimeMillis() - begin) / 1000.0);
+  boolean inited=native_initializeLibs(libPath,getLibraryPath(),String.valueOf(Vitamio.getVitamioType()));
+  new File(libPath).delete();
+  FileWriter fw=null;
+  try {
+    lock.createNewFile();
+    fw=new FileWriter(lock);
+    fw.write(version);
+    return true;
+  }
+ catch (  IOException e) {
+    Log.e("Error creating lock file",e);
+  }
+ finally {
+    Log.d("initializeNativeLibs: " + inited);
+    Log.d("loadLibs time: " + (System.currentTimeMillis() - begin) / 1000.0);
+    IOUtils.closeSilently(fw);
+  }
+  return false;
+}

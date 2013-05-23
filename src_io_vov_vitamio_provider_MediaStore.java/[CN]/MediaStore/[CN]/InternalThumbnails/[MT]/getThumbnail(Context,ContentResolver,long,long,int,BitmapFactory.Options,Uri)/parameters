@@ -1,0 +1,7 @@
+Context ctx
+ContentResolver cr
+long origId
+long groupId
+int kind
+BitmapFactory.Options options
+Uri baseUri

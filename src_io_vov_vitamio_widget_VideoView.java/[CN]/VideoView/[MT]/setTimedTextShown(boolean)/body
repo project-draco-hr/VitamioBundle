@@ -1,0 +1,3 @@
+{
+  if (mMediaPlayer != null)   mMediaPlayer.setTimedTextShown(shown);
+}

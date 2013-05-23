@@ -1,0 +1,5 @@
+{
+  _releaseVideoSurface();
+  mSurfaceHolder=null;
+  mSurface=null;
+}

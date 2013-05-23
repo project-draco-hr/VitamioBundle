@@ -1,0 +1,64 @@
+{
+switch (msg.what) {
+case MEDIA_PREPARED:
+    if (mOnPreparedListener != null)     mOnPreparedListener.onPrepared(mMediaPlayer);
+  return;
+case MEDIA_PLAYBACK_COMPLETE:
+if (mOnCompletionListener != null) mOnCompletionListener.onCompletion(mMediaPlayer);
+stayAwake(false);
+return;
+case MEDIA_BUFFERING_UPDATE:
+if (mOnBufferingUpdateListener != null) mOnBufferingUpdateListener.onBufferingUpdate(mMediaPlayer,msg.arg1);
+return;
+case MEDIA_SEEK_COMPLETE:
+if (isPlaying()) stayAwake(true);
+if (mOnSeekCompleteListener != null) mOnSeekCompleteListener.onSeekComplete(mMediaPlayer);
+return;
+case MEDIA_SET_VIDEO_SIZE:
+if (mOnVideoSizeChangedListener != null) mOnVideoSizeChangedListener.onVideoSizeChanged(mMediaPlayer,msg.arg1,msg.arg2);
+return;
+case MEDIA_ERROR:
+Log.e("Error (%d, %d)",msg.arg1,msg.arg2);
+boolean error_was_handled=false;
+if (mOnErrorListener != null) error_was_handled=mOnErrorListener.onError(mMediaPlayer,msg.arg1,msg.arg2);
+if (mOnCompletionListener != null && !error_was_handled) mOnCompletionListener.onCompletion(mMediaPlayer);
+stayAwake(false);
+return;
+case MEDIA_INFO:
+Log.i("Info (%d, %d)",msg.arg1,msg.arg2);
+if (mOnInfoListener != null) mOnInfoListener.onInfo(mMediaPlayer,msg.arg1,msg.arg2);
+return;
+case MEDIA_CACHE:
+return;
+case MEDIA_TIMED_TEXT:
+mData=msg.getData();
+if (mData.getInt(MEDIA_SUBTITLE_TYPE) == SUBTITLE_TEXT) {
+Log.i("Subtitle : %s",mData.getString(MEDIA_SUBTITLE_STRING));
+if (mOnTimedTextListener != null) mOnTimedTextListener.onTimedText(mData.getString(MEDIA_SUBTITLE_STRING));
+}
+ else if (mData.getInt(MEDIA_SUBTITLE_TYPE) == SUBTITLE_BITMAP) {
+Log.i("Subtitle : bitmap");
+if (mOnTimedTextListener != null) mOnTimedTextListener.onTimedTextUpdate(mData.getByteArray(MEDIA_SUBTITLE_BYTES),msg.arg1,msg.arg2);
+}
+return;
+case MEDIA_CACHING_UPDATE:
+if (mOnCachingUpdateListener != null) {
+int cacheType=msg.getData().getInt(MEDIA_CACHING_TYPE);
+if (cacheType == CACHE_TYPE_NOT_AVAILABLE) {
+mOnCachingUpdateListener.onCachingNotAvailable(mMediaPlayer,msg.getData().getInt(MEDIA_CACHING_INFO));
+}
+ else if (cacheType == CACHE_TYPE_UPDATE) {
+mOnCachingUpdateListener.onCachingUpdate(mMediaPlayer,msg.getData().getLongArray(MEDIA_CACHING_SEGMENTS));
+}
+ else if (cacheType == CACHE_TYPE_SPEED) {
+mOnCachingUpdateListener.onCachingSpeed(mMediaPlayer,msg.getData().getInt(MEDIA_CACHING_INFO));
+}
+}
+return;
+case MEDIA_NOP:
+return;
+default :
+Log.e("Unknown message type " + msg.what);
+return;
+}
+}

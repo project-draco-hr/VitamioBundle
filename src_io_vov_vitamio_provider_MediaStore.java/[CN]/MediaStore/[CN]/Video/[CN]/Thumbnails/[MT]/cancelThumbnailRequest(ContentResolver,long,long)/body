@@ -1,0 +1,3 @@
+{
+  InternalThumbnails.cancelThumbnailRequest(cr,origId,CONTENT_URI,groupId);
+}

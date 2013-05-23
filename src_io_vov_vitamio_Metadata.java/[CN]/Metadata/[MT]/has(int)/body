@@ -1,0 +1,6 @@
+{
+  if (!checkMetadataId(metadataId)) {
+    throw new IllegalArgumentException("Invalid key: " + metadataId);
+  }
+  return mMeta.indexOfKey(metadataId) >= 0;
+}

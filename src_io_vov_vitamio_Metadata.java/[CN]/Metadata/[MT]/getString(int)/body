@@ -1,0 +1,12 @@
+{
+  byte[] value=mMeta.get(key);
+  if (value == null) {
+    return null;
+  }
+  try {
+    return new String(value,mEncoding);
+  }
+ catch (  UnsupportedEncodingException e) {
+    return new String(value);
+  }
+}

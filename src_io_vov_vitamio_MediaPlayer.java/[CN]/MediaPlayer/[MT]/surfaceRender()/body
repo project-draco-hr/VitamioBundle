@@ -1,0 +1,14 @@
+{
+synchronized (this) {
+    if (mLocalSurface == null || !mLocalSurface.isValid() || mBitmap == null || mByteBuffer == null)     return;
+    try {
+      Canvas c=mLocalSurface.lockCanvas(null);
+      mBitmap.copyPixelsFromBuffer(mByteBuffer);
+      c.drawBitmap(mBitmap,0,0,null);
+      mLocalSurface.unlockCanvasAndPost(c);
+    }
+ catch (    Exception e) {
+      Log.e("surfaceRender",e);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  if (mFD != null) {
+    try {
+      mFD.close();
+    }
+ catch (    IOException e) {
+      Log.e("closeFD",e);
+    }
+    mFD=null;
+  }
+}

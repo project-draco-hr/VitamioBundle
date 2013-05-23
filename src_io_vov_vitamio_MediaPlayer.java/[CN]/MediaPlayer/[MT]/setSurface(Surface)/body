@@ -1,0 +1,11 @@
+{
+  if (surface == null) {
+    releaseDisplay();
+  }
+ else {
+    mSurfaceHolder=null;
+    mSurface=surface;
+    _setVideoSurface();
+    updateSurfaceScreenOn();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return getTrackMap(getAudioTracks(),encoding);
+}

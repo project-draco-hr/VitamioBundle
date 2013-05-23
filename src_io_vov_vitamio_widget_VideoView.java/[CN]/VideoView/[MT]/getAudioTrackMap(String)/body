@@ -1,4 +1,4 @@
 {
-  if (mMediaPlayer != null)   return mMediaPlayer.getAudioTrackMap(encoding);
+  if (mMediaPlayer != null)   return mMediaPlayer.findTrackFromTrackInfo(TrackInfo.MEDIA_TRACK_TYPE_AUDIO,mMediaPlayer.getTrackInfo(encoding));
   return null;
 }

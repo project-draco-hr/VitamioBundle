@@ -1,0 +1,26 @@
+{
+  if (!Vitamio.isInitialized(ctx)) {
+    return null;
+  }
+  Bitmap bitmap=null;
+  MediaMetadataRetriever retriever=null;
+  try {
+    retriever=new MediaMetadataRetriever(ctx);
+    retriever.setDataSource(filePath);
+    bitmap=retriever.getFrameAtTime(-1);
+  }
+ catch (  Exception ex) {
+  }
+ finally {
+    try {
+      retriever.release();
+    }
+ catch (    RuntimeException ex) {
+    }
+  }
+  if (bitmap != null) {
+    if (kind == Video.Thumbnails.MICRO_KIND)     bitmap=extractThumbnail(bitmap,TARGET_SIZE_MICRO_THUMBNAIL_WIDTH,TARGET_SIZE_MICRO_THUMBNAIL_HEIGHT,OPTIONS_RECYCLE_INPUT);
+ else     if (kind == Video.Thumbnails.MINI_KIND)     bitmap=extractThumbnail(bitmap,TARGET_SIZE_MINI_THUMBNAIL_WIDTH,TARGET_SIZE_MINI_THUMBNAIL_HEIGHT,OPTIONS_RECYCLE_INPUT);
+  }
+  return bitmap;
+}

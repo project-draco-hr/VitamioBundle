@@ -1,0 +1,18 @@
+{
+  if (!mEgl.eglSwapBuffers(mEglDisplay,mEglSurface)) {
+    int error=mEgl.eglGetError();
+switch (error) {
+case EGL11.EGL_CONTEXT_LOST:
+      return false;
+case EGL10.EGL_BAD_NATIVE_WINDOW:
+    Log.e("EglHelper","eglSwapBuffers returned EGL_BAD_NATIVE_WINDOW. tid=" + Thread.currentThread().getId());
+  break;
+case EGL10.EGL_BAD_SURFACE:
+Log.e("EglHelper","eglSwapBuffers returned EGL_BAD_SURFACE. tid=" + Thread.currentThread().getId());
+return false;
+default :
+throwEglException("eglSwapBuffers",error);
+}
+}
+return true;
+}

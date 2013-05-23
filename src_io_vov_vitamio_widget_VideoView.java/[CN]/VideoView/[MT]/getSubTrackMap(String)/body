@@ -1,4 +1,4 @@
 {
-  if (mMediaPlayer != null)   return mMediaPlayer.getSubTrackMap(encoding);
+  if (mMediaPlayer != null)   return mMediaPlayer.findTrackFromTrackInfo(TrackInfo.MEDIA_TRACK_TYPE_TIMEDTEXT,mMediaPlayer.getTrackInfo(encoding));
   return null;
 }

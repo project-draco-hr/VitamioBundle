@@ -1,0 +1,6 @@
+{
+  if (!egl.eglDestroyContext(display,context)) {
+    Log.e("DefaultContextFactory","display:" + display + " context: "+ context);
+    throw new RuntimeException("eglDestroyContext failed: ");
+  }
+}

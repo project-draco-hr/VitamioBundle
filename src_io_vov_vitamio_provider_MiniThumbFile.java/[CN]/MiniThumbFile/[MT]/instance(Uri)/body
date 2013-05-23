@@ -1,0 +1,9 @@
+{
+  String type=uri.getPathSegments().get(0);
+  MiniThumbFile file=sThumbFiles.get(type);
+  if (file == null) {
+    file=new MiniThumbFile(Uri.parse(MediaStore.CONTENT_AUTHORITY_SLASH + type + "/media"));
+    sThumbFiles.put(type,file);
+  }
+  return file;
+}

@@ -1,0 +1,3 @@
+{
+  return InternalThumbnails.getThumbnailPath(ctx,cr,origId,CONTENT_URI);
+}

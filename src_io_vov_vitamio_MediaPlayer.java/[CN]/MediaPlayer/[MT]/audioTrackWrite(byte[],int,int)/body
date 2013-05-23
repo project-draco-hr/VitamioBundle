@@ -1,0 +1,12 @@
+{
+  if (mAudioTrack != null) {
+    audioTrackStart();
+    int written;
+    while (sizeInBytes > 0) {
+      written=sizeInBytes > mAudioTrackBufferSize ? mAudioTrackBufferSize : sizeInBytes;
+      mAudioTrack.write(audioData,offsetInBytes,written);
+      sizeInBytes-=written;
+      offsetInBytes+=written;
+    }
+  }
+}

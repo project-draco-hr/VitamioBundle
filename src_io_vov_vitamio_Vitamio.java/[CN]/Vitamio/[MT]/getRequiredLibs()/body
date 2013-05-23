@@ -1,0 +1,8 @@
+{
+  List<String> libs=new ArrayList<String>();
+  for (  String[] libArray : new String[][]{LIBS_CODECS,LIBS_PLAYER,LIBS_SCANNER,LIBS_AV}) {
+    for (    String lib : libArray)     libs.add(lib);
+  }
+  libs.add(LIBS_LOCK);
+  return libs;
+}

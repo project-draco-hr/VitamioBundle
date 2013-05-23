@@ -1,0 +1,3 @@
+{
+  if (mOnHWRenderFailedListener != null)   mOnHWRenderFailedListener.onFailed();
+}

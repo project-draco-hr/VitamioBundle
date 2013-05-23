@@ -1,0 +1,4 @@
+{
+  mTrackType=trackType;
+  mTrackInfoArray=trackInfoArray;
+}

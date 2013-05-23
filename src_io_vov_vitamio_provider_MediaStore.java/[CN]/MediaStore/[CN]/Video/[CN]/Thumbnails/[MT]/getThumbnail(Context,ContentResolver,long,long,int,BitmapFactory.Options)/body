@@ -1,0 +1,3 @@
+{
+  return InternalThumbnails.getThumbnail(ctx,cr,origId,groupId,kind,options,CONTENT_URI);
+}

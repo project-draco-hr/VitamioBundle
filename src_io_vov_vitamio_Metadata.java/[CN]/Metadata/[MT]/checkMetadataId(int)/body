@@ -1,0 +1,6 @@
+{
+  if (val <= ANY || (LAST_SYSTEM < val && val < FIRST_CUSTOM)) {
+    return false;
+  }
+  return true;
+}

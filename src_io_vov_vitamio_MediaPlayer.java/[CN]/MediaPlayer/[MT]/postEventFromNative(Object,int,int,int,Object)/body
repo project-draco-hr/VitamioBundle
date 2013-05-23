@@ -1,0 +1,8 @@
+{
+  MediaPlayer mp=(MediaPlayer)(mediaplayer_ref);
+  if (mp == null)   return;
+  if (mp.mEventHandler != null) {
+    Message m=mp.mEventHandler.obtainMessage(what,arg1,arg2,obj);
+    mp.mEventHandler.sendMessage(m);
+  }
+}

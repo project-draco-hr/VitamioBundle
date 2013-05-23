@@ -1,0 +1,26 @@
+{
+  if (mEventHandler != null) {
+    Message m=mEventHandler.obtainMessage(MEDIA_TIMED_TEXT,width,height);
+    Bundle b=m.getData();
+    if (subType == SUBTITLE_TEXT) {
+      b.putInt(MEDIA_SUBTITLE_TYPE,SUBTITLE_TEXT);
+      if (encoding == null) {
+        b.putString(MEDIA_SUBTITLE_STRING,new String(bytes));
+      }
+ else {
+        try {
+          b.putString(MEDIA_SUBTITLE_STRING,new String(bytes,encoding.trim()));
+        }
+ catch (        UnsupportedEncodingException e) {
+          Log.e("updateSub",e);
+          b.putString(MEDIA_SUBTITLE_STRING,new String(bytes));
+        }
+      }
+    }
+ else     if (subType == SUBTITLE_BITMAP) {
+      b.putInt(MEDIA_SUBTITLE_TYPE,SUBTITLE_BITMAP);
+      b.putByteArray(MEDIA_SUBTITLE_BYTES,bytes);
+    }
+    mEventHandler.sendMessage(m);
+  }
+}

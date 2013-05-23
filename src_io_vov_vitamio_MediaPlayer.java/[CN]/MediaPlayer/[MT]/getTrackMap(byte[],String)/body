@@ -1,0 +1,22 @@
+{
+  HashMap<String,Integer> trackMap=new HashMap<String,Integer>();
+  String trackString;
+  int trackNum;
+  try {
+    trackString=new String(tracks,encoding);
+  }
+ catch (  Exception e) {
+    Log.e("getTrackMap exception");
+    trackString=new String(tracks);
+  }
+  for (  String s : trackString.split("!#!")) {
+    try {
+      if (s.contains("."))       trackNum=Integer.parseInt(s.split("\\.")[0]);
+ else       trackNum=Integer.parseInt(s);
+      trackMap.put(trackString,trackNum);
+    }
+ catch (    NumberFormatException e) {
+    }
+  }
+  return trackMap;
+}

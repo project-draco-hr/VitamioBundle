@@ -1,0 +1,13 @@
+{
+  if (mMeta == null) {
+    mMeta=new Metadata();
+    Map<byte[],byte[]> meta=new HashMap<byte[],byte[]>();
+    if (!native_getMetadata(meta)) {
+      return null;
+    }
+    if (!mMeta.parse(meta,getMetaEncoding())) {
+      return null;
+    }
+  }
+  return mMeta;
+}

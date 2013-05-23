@@ -1,0 +1,5 @@
+{
+  String message=String.format("%s failed: %x",function,error);
+  Log.e("EglHelper","throwEglException tid=" + Thread.currentThread().getId() + " "+ message);
+  throw new RuntimeException(message);
+}

@@ -1,0 +1,19 @@
+{
+  if (context == null || uri == null)   throw new IllegalArgumentException();
+  String scheme=uri.getScheme();
+  if (scheme == null || scheme.equals("file")) {
+    setDataSource(FileUtils.getPath(uri.toString()));
+    return;
+  }
+  try {
+    ContentResolver resolver=context.getContentResolver();
+    mFD=resolver.openAssetFileDescriptor(uri,"r");
+    if (mFD == null)     return;
+    setDataSource(mFD.getParcelFileDescriptor().getFileDescriptor());
+    return;
+  }
+ catch (  Exception e) {
+    closeFD();
+  }
+  _setDataSource(uri.toString(),headers);
+}

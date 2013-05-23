@@ -1,0 +1,15 @@
+{
+  String column="video_id=";
+  String path="";
+  Cursor c=null;
+  try {
+    c=cr.query(baseUri,PROJECTION,column + origId,null,null);
+    if (c != null && c.moveToFirst()) {
+      path=c.getString(c.getColumnIndex(MediaColumns.DATA));
+    }
+  }
+  finally {
+    if (c != null)     c.close();
+  }
+  return path;
+}

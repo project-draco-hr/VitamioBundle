@@ -1,3 +1,3 @@
 {
-  if (mMediaPlayer != null)   mMediaPlayer.setSubTrack(trackId);
+  if (mMediaPlayer != null)   mMediaPlayer.selectTrack(trackId);
 }

@@ -1,0 +1,5 @@
+int subType
+byte[] bytes
+String encoding
+int width
+int height

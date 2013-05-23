@@ -1,0 +1,11 @@
+{
+  StringBuffer headerBuffer=null;
+  if (headers != null) {
+    headerBuffer=new StringBuffer();
+    for (    Map.Entry<String,String> entry : headers.entrySet()) {
+      headerBuffer.append(entry.getKey()).append(":").append(entry.getValue()).append("\r\n");
+    }
+  }
+  setDataSource(context,uri,headerBuffer == null ? null : headerBuffer.toString());
+  return;
+}

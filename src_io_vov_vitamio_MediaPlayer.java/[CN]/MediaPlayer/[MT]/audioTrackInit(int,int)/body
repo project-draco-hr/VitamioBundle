@@ -1,0 +1,13 @@
+{
+  audioTrackRelease();
+  int channelConfig=channels >= 2 ? AudioFormat.CHANNEL_OUT_STEREO : AudioFormat.CHANNEL_OUT_MONO;
+  try {
+    mAudioTrackBufferSize=AudioTrack.getMinBufferSize(sampleRateInHz,channelConfig,AudioFormat.ENCODING_PCM_16BIT);
+    mAudioTrack=new AudioTrack(AudioManager.STREAM_MUSIC,sampleRateInHz,channelConfig,AudioFormat.ENCODING_PCM_16BIT,mAudioTrackBufferSize,AudioTrack.MODE_STREAM);
+  }
+ catch (  Exception e) {
+    mAudioTrackBufferSize=0;
+    Log.e("audioTrackInit",e);
+  }
+  return mAudioTrackBufferSize;
+}

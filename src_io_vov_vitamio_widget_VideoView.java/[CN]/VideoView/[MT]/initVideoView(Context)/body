@@ -2,6 +2,7 @@
   mContext=ctx;
   mVideoWidth=0;
   mVideoHeight=0;
+  getHolder().setFormat(PixelFormat.RGBA_8888);
   getHolder().addCallback(mSHCallback);
   setFocusable(true);
   setFocusableInTouchMode(true);

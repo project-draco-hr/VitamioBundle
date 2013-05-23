@@ -1,4 +1,0 @@
-{
-  if (mMediaPlayer != null)   return mMediaPlayer.getSubLocation();
-  return -1;
-}

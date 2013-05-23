@@ -1,0 +1,7 @@
+{
+  if (mAudioTrack != null) {
+    if (mAudioTrack.getState() == AudioTrack.STATE_INITIALIZED)     mAudioTrack.stop();
+    mAudioTrack.release();
+  }
+  mAudioTrack=null;
+}

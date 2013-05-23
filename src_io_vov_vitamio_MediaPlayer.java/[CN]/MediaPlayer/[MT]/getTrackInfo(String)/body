@@ -1,0 +1,13 @@
+{
+  SparseArray<byte[]> trackSparse=new SparseArray<byte[]>();
+  if (!native_getTrackInfo(trackSparse)) {
+    return null;
+  }
+  int size=trackSparse.size();
+  TrackInfo[] trackInfos=new TrackInfo[size];
+  for (int i=0; i < size; i++) {
+    TrackInfo trackInfo=new TrackInfo(trackSparse.keyAt(i),parseTrackInfo(trackSparse.valueAt(i),encoding));
+    trackInfos[i]=trackInfo;
+  }
+  return trackInfos;
+}

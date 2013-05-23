@@ -1,0 +1,16 @@
+{
+synchronized (this) {
+    mLocalSurface=mSurface;
+    int w=getVideoWidth_a();
+    int h=getVideoHeight_a();
+    if (mLocalSurface != null && w != 0 && h != 0) {
+      mBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.RGB_565);
+      mByteBuffer=ByteBuffer.allocateDirect(w * h * 2);
+    }
+ else {
+      mBitmap=null;
+      mByteBuffer=null;
+    }
+    return mByteBuffer;
+  }
+}
