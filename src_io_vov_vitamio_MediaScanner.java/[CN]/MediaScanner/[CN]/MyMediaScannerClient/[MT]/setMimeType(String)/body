@@ -1,0 +1,5 @@
+{
+  Log.i("setMimeType: %s",mimeType);
+  mMimeType=mimeType;
+  mFileType=MediaFile.getFileTypeForMimeType(mimeType);
+}

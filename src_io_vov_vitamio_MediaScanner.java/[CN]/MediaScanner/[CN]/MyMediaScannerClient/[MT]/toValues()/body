@@ -1,0 +1,17 @@
+{
+  ContentValues map=new ContentValues();
+  map.put(MediaStore.MediaColumns.DATA,mPath);
+  map.put(MediaStore.MediaColumns.DATE_MODIFIED,mLastModified);
+  map.put(MediaStore.MediaColumns.SIZE,mFileSize);
+  map.put(MediaStore.MediaColumns.MIME_TYPE,mMimeType);
+  map.put(MediaStore.MediaColumns.TITLE,mTitle);
+  if (MediaFile.isVideoFileType(mFileType)) {
+    map.put(Video.Media.DURATION,mDuration);
+    map.put(Video.Media.LANGUAGE,mLanguage);
+    map.put(Video.Media.ALBUM,mAlbum);
+    map.put(Video.Media.ARTIST,mArtist);
+    map.put(Video.Media.WIDTH,mWidth);
+    map.put(Video.Media.HEIGHT,mHeight);
+  }
+  return map;
+}

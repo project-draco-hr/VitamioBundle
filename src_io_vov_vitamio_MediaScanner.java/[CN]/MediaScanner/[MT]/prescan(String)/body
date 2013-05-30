@@ -1,0 +1,43 @@
+{
+  mProvider=mContext.getContentResolver().acquireContentProviderClient(MediaStore.AUTHORITY);
+  Cursor c=null;
+  String where=null;
+  String[] selectionArgs=null;
+  if (mFileCache == null)   mFileCache=new HashMap<String,FileCacheEntry>();
+ else   mFileCache.clear();
+  try {
+    if (filePath != null) {
+      where=Video.Media.DATA + "=?";
+      selectionArgs=new String[]{filePath};
+    }
+    c=mProvider.query(Video.Media.CONTENT_URI,VIDEO_PROJECTION,where,selectionArgs,null);
+    if (c != null) {
+      try {
+        while (c.moveToNext()) {
+          long rowId=c.getLong(ID_VIDEO_COLUMN_INDEX);
+          String path=c.getString(PATH_VIDEO_COLUMN_INDEX);
+          long lastModified=c.getLong(DATE_MODIFIED_VIDEO_COLUMN_INDEX);
+          if (path.startsWith("/")) {
+            File tempFile=new File(path);
+            if (!TextUtils.isEmpty(filePath) && !tempFile.exists()) {
+              mProvider.delete(Video.Media.CONTENT_URI,where,selectionArgs);
+              return;
+            }
+            path=FileUtils.getCanonical(tempFile);
+            String key=mCaseInsensitivePaths ? path.toLowerCase() : path;
+            mFileCache.put(key,new FileCacheEntry(Video.Media.CONTENT_URI,rowId,path,lastModified));
+          }
+        }
+      }
+  finally {
+        c.close();
+        c=null;
+      }
+    }
+  }
+  finally {
+    if (c != null) {
+      c.close();
+    }
+  }
+}

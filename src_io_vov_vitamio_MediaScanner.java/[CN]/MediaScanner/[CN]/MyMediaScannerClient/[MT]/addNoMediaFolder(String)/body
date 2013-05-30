@@ -1,0 +1,11 @@
+{
+  ContentValues values=new ContentValues();
+  values.put(MediaStore.MediaColumns.DATA,"");
+  String[] pathSpec=new String[]{path + '%'};
+  try {
+    mProvider.update(Video.Media.CONTENT_URI,values,MediaStore.MediaColumns.DATA + " LIKE ?",pathSpec);
+  }
+ catch (  RemoteException e) {
+    throw new RuntimeException();
+  }
+}

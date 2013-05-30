@@ -1,0 +1,4 @@
+{
+  Log.i("scanFile: %s",path);
+  doScanFile(path,lastModified,fileSize,false);
+}

@@ -1,0 +1,19 @@
+{
+  Uri result=null;
+  try {
+    FileCacheEntry entry=beginFile(path,lastModified,fileSize);
+    if (entry != null && (entry.mLastModifiedChanged || scanAlways)) {
+      if (processFile(path,null)) {
+        result=endFile(entry);
+      }
+ else {
+        if (mCaseInsensitivePaths)         mFileCache.remove(path.toLowerCase());
+ else         mFileCache.remove(path);
+      }
+    }
+  }
+ catch (  RemoteException e) {
+    Log.e("RemoteException in MediaScanner.scanFile()",e);
+  }
+  return result;
+}

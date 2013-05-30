@@ -1,0 +1,17 @@
+{
+  Iterator<FileCacheEntry> iterator=mFileCache.values().iterator();
+  while (iterator.hasNext()) {
+    FileCacheEntry entry=iterator.next();
+    String path=entry.mPath;
+    if (!entry.mSeenInFileSystem) {
+      if (inScanDirectory(path,directories) && !new File(path).exists()) {
+        mProvider.delete(ContentUris.withAppendedId(entry.mTableUri,entry.mRowId),null,null);
+        iterator.remove();
+      }
+    }
+  }
+  mFileCache.clear();
+  mFileCache=null;
+  mProvider.release();
+  mProvider=null;
+}

@@ -1,0 +1,3 @@
+String name
+byte[] valueBytes
+String valueEncoding

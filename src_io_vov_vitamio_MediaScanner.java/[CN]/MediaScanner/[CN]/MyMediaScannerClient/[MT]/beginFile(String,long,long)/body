@@ -1,0 +1,39 @@
+{
+  int lastSlash=path.lastIndexOf('/');
+  if (lastSlash >= 0 && lastSlash + 2 < path.length()) {
+    if (path.regionMatches(lastSlash + 1,"._",0,2))     return null;
+    if (path.regionMatches(true,path.length() - 4,".jpg",0,4)) {
+      if (path.regionMatches(true,lastSlash + 1,"AlbumArt_{",0,10) || path.regionMatches(true,lastSlash + 1,"AlbumArt.",0,9)) {
+        return null;
+      }
+      int length=path.length() - lastSlash - 1;
+      if ((length == 17 && path.regionMatches(true,lastSlash + 1,"AlbumArtSmall",0,13)) || (length == 10 && path.regionMatches(true,lastSlash + 1,"Folder",0,6))) {
+        return null;
+      }
+    }
+  }
+  MediaFile.MediaFileType mediaFileType=MediaFile.getFileType(path);
+  if (mediaFileType != null) {
+    mFileType=mediaFileType.fileType;
+    mMimeType=mediaFileType.mimeType;
+  }
+  String key=FileUtils.getCanonical(new File(path));
+  if (mCaseInsensitivePaths)   key=path.toLowerCase();
+  FileCacheEntry entry=mFileCache.get(key);
+  if (entry == null) {
+    entry=new FileCacheEntry(null,0,path,0);
+    mFileCache.put(key,entry);
+  }
+  entry.mSeenInFileSystem=true;
+  long delta=lastModified - entry.mLastModified;
+  if (delta > 1 || delta < -1) {
+    entry.mLastModified=lastModified;
+    entry.mLastModifiedChanged=true;
+  }
+  mPath=path;
+  mLastModified=lastModified;
+  mFileSize=fileSize;
+  mTitle=null;
+  mDuration=0;
+  return entry;
+}
