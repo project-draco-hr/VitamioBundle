@@ -1,0 +1,24 @@
+{
+  try {
+switch (media) {
+case LOCAL_AUDIO:
+      path="";
+    if (path == "") {
+      Toast.makeText(MediaPlayerDemo_Audio.this,"Please edit MediaPlayer_Audio Activity, " + "and set the path variable to your audio file path." + " Your audio file must be stored on sdcard.",Toast.LENGTH_LONG).show();
+      return;
+    }
+  mMediaPlayer=new MediaPlayer(this);
+mMediaPlayer.setDataSource(path);
+mMediaPlayer.prepare();
+mMediaPlayer.start();
+break;
+case RESOURCES_AUDIO:
+mMediaPlayer=createMediaPlayer(this,R.raw.test_cbr);
+mMediaPlayer.start();
+}
+tx.setText("Playing audio...");
+}
+ catch (Exception e) {
+Log.e(TAG,"error: " + e.getMessage(),e);
+}
+}

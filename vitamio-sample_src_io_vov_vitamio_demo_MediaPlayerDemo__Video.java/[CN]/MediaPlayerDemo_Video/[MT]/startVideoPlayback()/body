@@ -1,0 +1,5 @@
+{
+  Log.v(TAG,"startVideoPlayback");
+  holder.setFixedSize(mVideoWidth,mVideoHeight);
+  mMediaPlayer.start();
+}

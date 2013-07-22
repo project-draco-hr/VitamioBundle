@@ -1,0 +1,10 @@
+{
+  super.onCreate(icicle);
+  setContentView(R.layout.mediaplayer_1);
+  mlocalaudio=(Button)findViewById(R.id.localaudio);
+  mlocalaudio.setOnClickListener(mLocalAudioListener);
+  mlocalvideo=(Button)findViewById(R.id.localvideo);
+  mlocalvideo.setOnClickListener(mLocalVideoListener);
+  mstreamvideo=(Button)findViewById(R.id.streamvideo);
+  mstreamvideo.setOnClickListener(mStreamVideoListener);
+}

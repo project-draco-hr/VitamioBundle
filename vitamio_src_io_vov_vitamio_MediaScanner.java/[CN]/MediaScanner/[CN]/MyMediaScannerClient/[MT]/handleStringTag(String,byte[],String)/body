@@ -1,0 +1,35 @@
+{
+  String value;
+  try {
+    value=new String(valueBytes,valueEncoding);
+  }
+ catch (  Exception e) {
+    Log.e("handleStringTag",e);
+    value=new String(valueBytes);
+  }
+  Log.i("%s : %s",name,value);
+  if (name.equalsIgnoreCase("title")) {
+    mTitle=value;
+  }
+ else   if (name.equalsIgnoreCase("artist")) {
+    mArtist=value.trim();
+  }
+ else   if (name.equalsIgnoreCase("albumartist")) {
+    if (TextUtils.isEmpty(mArtist))     mArtist=value.trim();
+  }
+ else   if (name.equalsIgnoreCase("album")) {
+    mAlbum=value.trim();
+  }
+ else   if (name.equalsIgnoreCase("language")) {
+    mLanguage=value.trim();
+  }
+ else   if (name.equalsIgnoreCase("duration")) {
+    mDuration=parseSubstring(value,0,0);
+  }
+ else   if (name.equalsIgnoreCase("width")) {
+    mWidth=parseSubstring(value,0,0);
+  }
+ else   if (name.equalsIgnoreCase("height")) {
+    mHeight=parseSubstring(value,0,0);
+  }
+}

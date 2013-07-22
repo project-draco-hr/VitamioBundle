@@ -1,0 +1,15 @@
+{
+  stayAwake(false);
+  updateSurfaceScreenOn();
+  mOnPreparedListener=null;
+  mOnBufferingUpdateListener=null;
+  mOnCompletionListener=null;
+  mOnSeekCompleteListener=null;
+  mOnErrorListener=null;
+  mOnInfoListener=null;
+  mOnVideoSizeChangedListener=null;
+  mOnCachingUpdateListener=null;
+  mOnHWRenderFailedListener=null;
+  _release();
+  closeFD();
+}

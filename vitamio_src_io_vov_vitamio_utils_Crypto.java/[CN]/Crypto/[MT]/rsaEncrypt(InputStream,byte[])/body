@@ -1,0 +1,13 @@
+{
+  try {
+    PublicKey pubKey=readKeyFromStream(keyStream);
+    Cipher cipher=Cipher.getInstance("RSA/ECB/NoPadding");
+    cipher.init(Cipher.ENCRYPT_MODE,pubKey);
+    byte[] cipherData=cipher.doFinal(data);
+    return Base64.encodeToString(cipherData,Base64.NO_WRAP);
+  }
+ catch (  Exception e) {
+    Log.e("rsaEncrypt",e);
+    return "";
+  }
+}

@@ -1,0 +1,9 @@
+{
+  try {
+    SecretKeySpec skey=new SecretKeySpec(generateKey(key),"AES");
+    setupCrypto(skey);
+  }
+ catch (  Exception e) {
+    Log.e("Crypto",e);
+  }
+}

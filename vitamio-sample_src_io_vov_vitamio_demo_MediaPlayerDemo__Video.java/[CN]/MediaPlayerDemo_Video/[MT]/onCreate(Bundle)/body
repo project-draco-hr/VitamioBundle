@@ -1,0 +1,10 @@
+{
+  super.onCreate(icicle);
+  if (!LibsChecker.checkVitamioLibs(this))   return;
+  setContentView(R.layout.mediaplayer_2);
+  mPreview=(SurfaceView)findViewById(R.id.surface);
+  holder=mPreview.getHolder();
+  holder.addCallback(this);
+  holder.setFormat(PixelFormat.RGBA_8888);
+  extras=getIntent().getExtras();
+}

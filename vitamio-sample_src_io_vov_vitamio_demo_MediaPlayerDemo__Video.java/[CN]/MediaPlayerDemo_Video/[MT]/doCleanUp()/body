@@ -1,0 +1,6 @@
+{
+  mVideoWidth=0;
+  mVideoHeight=0;
+  mIsVideoReadyToBePlayed=false;
+  mIsVideoSizeKnown=false;
+}

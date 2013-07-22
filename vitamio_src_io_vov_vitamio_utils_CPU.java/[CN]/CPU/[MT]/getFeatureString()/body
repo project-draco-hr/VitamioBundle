@@ -1,0 +1,4 @@
+{
+  getFeature();
+  return cachedFeatureString;
+}

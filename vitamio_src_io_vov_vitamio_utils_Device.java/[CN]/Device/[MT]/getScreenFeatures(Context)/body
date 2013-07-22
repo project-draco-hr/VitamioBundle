@@ -1,0 +1,12 @@
+{
+  StringBuilder sb=new StringBuilder();
+  DisplayMetrics disp=ctx.getResources().getDisplayMetrics();
+  sb.append(getPair("screen_density","" + disp.density));
+  sb.append(getPair("screen_density_dpi","" + disp.densityDpi));
+  sb.append(getPair("screen_height_pixels","" + disp.heightPixels));
+  sb.append(getPair("screen_width_pixels","" + disp.widthPixels));
+  sb.append(getPair("screen_scaled_density","" + disp.scaledDensity));
+  sb.append(getPair("screen_xdpi","" + disp.xdpi));
+  sb.append(getPair("screen_ydpi","" + disp.ydpi));
+  return sb.toString();
+}

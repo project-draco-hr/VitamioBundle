@@ -1,0 +1,13 @@
+{
+  StringBuilder builder=new StringBuilder();
+  if (elements != null) {
+    Iterator<? extends Object> iter=elements.iterator();
+    if (iter.hasNext()) {
+      builder.append(String.valueOf(iter.next()));
+      while (iter.hasNext()) {
+        builder.append(separator).append(String.valueOf(iter.next()));
+      }
+    }
+  }
+  return builder.toString();
+}

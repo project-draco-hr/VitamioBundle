@@ -1,0 +1,5 @@
+{
+  ApplicationInfo ai=ctx.getApplicationInfo();
+  if (ai.dataDir != null)   return fixLastSlash(ai.dataDir);
+ else   return "/data/data/" + ai.packageName + "/";
+}

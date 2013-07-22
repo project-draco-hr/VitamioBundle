@@ -1,0 +1,5 @@
+{
+  String path=getPath(uri);
+  if (path != null)   return new File(path).getName();
+  return null;
+}

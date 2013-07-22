@@ -1,0 +1,21 @@
+{
+  super.onCreate(icicle);
+  if (!LibsChecker.checkVitamioLibs(this))   return;
+  setContentView(R.layout.videoview);
+  mVideoView=(VideoView)findViewById(R.id.surface_view);
+  if (path == "") {
+    Toast.makeText(VideoViewDemo.this,"Please edit VideoViewDemo Activity, and set path" + " variable to your media file URL/path",Toast.LENGTH_LONG).show();
+    return;
+  }
+ else {
+    mVideoView.setVideoPath(path);
+    mVideoView.setMediaController(new MediaController(this));
+    mVideoView.requestFocus();
+    mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener(){
+      @Override public void onPrepared(      MediaPlayer mediaPlayer){
+        mediaPlayer.setPlaybackSpeed(1.0f);
+      }
+    }
+);
+  }
+}

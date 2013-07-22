@@ -1,0 +1,14 @@
+{
+  ObjectInputStream oin=new ObjectInputStream(new BufferedInputStream(keyStream));
+  try {
+    PublicKey pubKey=(PublicKey)oin.readObject();
+    return pubKey;
+  }
+ catch (  Exception e) {
+    Log.e("readKeyFromStream",e);
+    return null;
+  }
+ finally {
+    oin.close();
+  }
+}

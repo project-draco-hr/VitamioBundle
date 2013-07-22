@@ -1,0 +1,71 @@
+{
+  if (cachedFeature > 0)   return getCachedFeature();
+  cachedFeature=FEATURE_ARM_V5TE;
+  if (cpuinfo.isEmpty()) {
+    BufferedReader bis=null;
+    try {
+      bis=new BufferedReader(new FileReader(new File("/proc/cpuinfo")));
+      String line;
+      String[] pairs;
+      while ((line=bis.readLine()) != null) {
+        Log.d(line);
+        if (!line.trim().equals("")) {
+          pairs=line.split(":");
+          if (pairs.length > 1)           cpuinfo.put(pairs[0].trim(),pairs[1].trim());
+        }
+      }
+    }
+ catch (    Exception e) {
+      Log.e("getCPUFeature",e);
+    }
+ finally {
+      try {
+        if (bis != null)         bis.close();
+      }
+ catch (      IOException e) {
+        Log.e("getCPUFeature",e);
+      }
+    }
+  }
+  if (!cpuinfo.isEmpty()) {
+    for (    String key : cpuinfo.keySet())     Log.d("%s:%s",key,cpuinfo.get(key));
+    boolean hasARMv6=false;
+    boolean hasARMv7=false;
+    String val=cpuinfo.get("CPU architecture");
+    if (val != null) {
+      try {
+        int i=StringUtils.convertToInt(val);
+        Log.d("CPU architecture: %s",i);
+        if (i >= 7) {
+          hasARMv6=true;
+          hasARMv7=true;
+        }
+ else         if (i >= 6) {
+          hasARMv6=true;
+          hasARMv7=false;
+        }
+      }
+ catch (      NumberFormatException ex) {
+        Log.e("getCPUFeature",ex);
+      }
+    }
+    val=cpuinfo.get("Processor");
+    if (val != null && val.contains("(v7l)") || val.contains("ARMv7")) {
+      hasARMv6=true;
+      hasARMv7=true;
+    }
+    if (val != null && val.contains("(v6l)") || val.contains("ARMv6")) {
+      hasARMv6=true;
+      hasARMv7=false;
+    }
+    if (hasARMv6)     cachedFeature|=FEATURE_ARM_V6;
+    if (hasARMv7)     cachedFeature|=FEATURE_ARM_V7A;
+    val=cpuinfo.get("Features");
+    if (val != null) {
+      if (val.contains("neon"))       cachedFeature|=FEATURE_ARM_VFP | FEATURE_ARM_VFPV3 | FEATURE_ARM_NEON;
+ else       if (val.contains("vfpv3"))       cachedFeature|=FEATURE_ARM_VFP | FEATURE_ARM_VFPV3;
+ else       if (val.contains("vfp"))       cachedFeature|=FEATURE_ARM_VFP;
+    }
+  }
+  return getCachedFeature();
+}

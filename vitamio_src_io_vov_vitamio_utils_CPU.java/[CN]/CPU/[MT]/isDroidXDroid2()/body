@@ -1,0 +1,3 @@
+{
+  return (Build.MODEL.trim().equalsIgnoreCase("DROIDX") || Build.MODEL.trim().equalsIgnoreCase("DROID2") || Build.FINGERPRINT.toLowerCase().contains("shadow")|| Build.FINGERPRINT.toLowerCase().contains("droid2"));
+}

@@ -1,0 +1,8 @@
+{
+  super.onCreate(icicle);
+  if (!LibsChecker.checkVitamioLibs(this))   return;
+  tx=new TextView(this);
+  setContentView(tx);
+  Bundle extras=getIntent().getExtras();
+  playAudio(extras.getInt(MEDIA));
+}

@@ -1,0 +1,5 @@
+{
+  key=key == null ? "" : key.trim();
+  value=value == null ? "" : value.trim();
+  return "&" + key + "="+ value;
+}

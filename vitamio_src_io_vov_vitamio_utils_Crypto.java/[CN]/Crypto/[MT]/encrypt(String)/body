@@ -1,0 +1,11 @@
+{
+  if (ecipher == null)   return "";
+  try {
+    byte[] ciphertext=ecipher.doFinal(plaintext.getBytes("UTF-8"));
+    return Base64.encodeToString(ciphertext,Base64.NO_WRAP);
+  }
+ catch (  Exception e) {
+    Log.e("encryp",e);
+    return "";
+  }
+}

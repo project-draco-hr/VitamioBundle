@@ -1,0 +1,7 @@
+{
+  List<Map<String,Object>> myData=new ArrayList<Map<String,Object>>();
+  addItem(myData,"MediaPlayer",new Intent(this,MediaPlayerDemo.class));
+  addItem(myData,"VideoView",new Intent(this,VideoViewDemo.class));
+  addItem(myData,"MediaMetadata",new Intent(this,MediaMetadataRetrieverDemo.class));
+  return myData;
+}

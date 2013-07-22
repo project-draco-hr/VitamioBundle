@@ -1,0 +1,6 @@
+{
+  Log.i("FileUtils#getPath(%s)",uri);
+  if (TextUtils.isEmpty(uri))   return null;
+  if (uri.startsWith("file://") && uri.length() > 7)   return Uri.decode(uri.substring(7));
+  return Uri.decode(uri);
+}

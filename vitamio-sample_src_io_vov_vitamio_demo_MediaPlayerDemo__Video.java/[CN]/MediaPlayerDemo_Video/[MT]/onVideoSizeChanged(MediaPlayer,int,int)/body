@@ -1,0 +1,13 @@
+{
+  Log.v(TAG,"onVideoSizeChanged called");
+  if (width == 0 || height == 0) {
+    Log.e(TAG,"invalid video width(" + width + ") or height("+ height+ ")");
+    return;
+  }
+  mIsVideoSizeKnown=true;
+  mVideoWidth=width;
+  mVideoHeight=height;
+  if (mIsVideoReadyToBePlayed && mIsVideoSizeKnown) {
+    startVideoPlayback();
+  }
+}

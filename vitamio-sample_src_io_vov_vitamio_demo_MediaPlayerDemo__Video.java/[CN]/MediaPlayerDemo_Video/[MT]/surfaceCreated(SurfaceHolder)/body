@@ -1,0 +1,4 @@
+{
+  Log.d(TAG,"surfaceCreated called");
+  playVideo(extras.getInt(MEDIA));
+}

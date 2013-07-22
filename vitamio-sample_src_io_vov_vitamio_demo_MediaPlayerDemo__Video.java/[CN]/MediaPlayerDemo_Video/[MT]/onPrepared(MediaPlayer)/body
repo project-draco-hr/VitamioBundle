@@ -1,0 +1,7 @@
+{
+  Log.d(TAG,"onPrepared called");
+  mIsVideoReadyToBePlayed=true;
+  if (mIsVideoReadyToBePlayed && mIsVideoSizeKnown) {
+    startVideoPlayback();
+  }
+}

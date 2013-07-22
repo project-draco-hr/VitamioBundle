@@ -1,0 +1,29 @@
+{
+  try {
+    long start=System.currentTimeMillis();
+    prescan(null);
+    long prescan=System.currentTimeMillis();
+    for (int i=0; i < directories.length; i++) {
+      if (!TextUtils.isEmpty(directories[i])) {
+        directories[i]=ContextUtils.fixLastSlash(directories[i]);
+        processDirectory(directories[i],MediaFile.sFileExtensions);
+      }
+    }
+    long scan=System.currentTimeMillis();
+    postscan(directories);
+    long end=System.currentTimeMillis();
+    Log.d(" prescan time: %dms",prescan - start);
+    Log.d("    scan time: %dms",scan - prescan);
+    Log.d("postscan time: %dms",end - scan);
+    Log.d("   total time: %dms",end - start);
+  }
+ catch (  SQLException e) {
+    Log.e("SQLException in MediaScanner.scan()",e);
+  }
+catch (  UnsupportedOperationException e) {
+    Log.e("UnsupportedOperationException in MediaScanner.scan()",e);
+  }
+catch (  RemoteException e) {
+    Log.e("RemoteException in MediaScanner.scan()",e);
+  }
+}

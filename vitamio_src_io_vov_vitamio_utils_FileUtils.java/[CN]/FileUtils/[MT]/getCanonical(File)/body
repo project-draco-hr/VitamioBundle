@@ -1,0 +1,9 @@
+{
+  if (f == null)   return null;
+  try {
+    return f.getCanonicalPath();
+  }
+ catch (  IOException e) {
+    return f.getAbsolutePath();
+  }
+}

@@ -1,0 +1,34 @@
+{
+  doCleanUp();
+  try {
+switch (Media) {
+case LOCAL_VIDEO:
+      path="";
+    if (path == "") {
+      Toast.makeText(MediaPlayerDemo_Video.this,"Please edit MediaPlayerDemo_Video Activity, " + "and set the path variable to your media file path." + " Your media file must be stored on sdcard.",Toast.LENGTH_LONG).show();
+      return;
+    }
+  break;
+case STREAM_VIDEO:
+path="";
+if (path == "") {
+Toast.makeText(MediaPlayerDemo_Video.this,"Please edit MediaPlayerDemo_Video Activity," + " and set the path variable to your media file URL.",Toast.LENGTH_LONG).show();
+return;
+}
+break;
+}
+mMediaPlayer=new MediaPlayer(this);
+mMediaPlayer.setDataSource(path);
+mMediaPlayer.setDisplay(holder);
+mMediaPlayer.prepare();
+mMediaPlayer.setOnBufferingUpdateListener(this);
+mMediaPlayer.setOnCompletionListener(this);
+mMediaPlayer.setOnPreparedListener(this);
+mMediaPlayer.setOnVideoSizeChangedListener(this);
+mMediaPlayer.getMetadata();
+setVolumeControlStream(AudioManager.STREAM_MUSIC);
+}
+ catch (Exception e) {
+Log.e(TAG,"error: " + e.getMessage(),e);
+}
+}
