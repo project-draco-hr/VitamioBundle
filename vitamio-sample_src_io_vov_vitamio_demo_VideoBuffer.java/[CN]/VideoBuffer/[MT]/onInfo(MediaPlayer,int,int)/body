@@ -1,0 +1,25 @@
+{
+switch (what) {
+case MediaPlayer.MEDIA_INFO_BUFFERING_START:
+    if (mVideoView.isPlaying()) {
+      mVideoView.pause();
+      isStart=true;
+      pb.setVisibility(View.VISIBLE);
+      downloadRateView.setVisibility(View.VISIBLE);
+      loadRateView.setVisibility(View.VISIBLE);
+    }
+  break;
+case MediaPlayer.MEDIA_INFO_BUFFERING_END:
+if (isStart) {
+  mVideoView.start();
+  pb.setVisibility(View.GONE);
+  downloadRateView.setVisibility(View.GONE);
+  loadRateView.setVisibility(View.GONE);
+}
+break;
+case MediaPlayer.MEDIA_INFO_DOWNLOAD_RATE_CHANGED:
+downloadRateView.setText("" + extra + "kb/s"+ "  ");
+break;
+}
+return true;
+}

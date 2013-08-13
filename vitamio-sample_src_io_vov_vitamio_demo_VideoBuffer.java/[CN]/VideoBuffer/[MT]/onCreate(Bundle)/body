@@ -1,0 +1,27 @@
+{
+  super.onCreate(icicle);
+  if (!LibsChecker.checkVitamioLibs(this))   return;
+  setContentView(R.layout.videobuffer);
+  mVideoView=(VideoView)findViewById(R.id.buffer);
+  pb=(ProgressBar)findViewById(R.id.probar);
+  downloadRateView=(TextView)findViewById(R.id.download_rate);
+  loadRateView=(TextView)findViewById(R.id.load_rate);
+  if (path == "") {
+    Toast.makeText(VideoBuffer.this,"Please edit VideoBuffer Activity, and set path" + " variable to your media file URL/path",Toast.LENGTH_LONG).show();
+    return;
+  }
+ else {
+    uri=Uri.parse(path);
+    mVideoView.setVideoURI(uri);
+    mVideoView.setMediaController(new MediaController(this));
+    mVideoView.requestFocus();
+    mVideoView.setOnInfoListener(this);
+    mVideoView.setOnBufferingUpdateListener(this);
+    mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener(){
+      @Override public void onPrepared(      MediaPlayer mediaPlayer){
+        mediaPlayer.setPlaybackSpeed(1.0f);
+      }
+    }
+);
+  }
+}

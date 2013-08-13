@@ -1,0 +1,5 @@
+{
+  startVPback();
+  mediaPlayer.addTimedTextSource(Environment.getExternalStorageDirectory() + "/12.srt");
+  mediaPlayer.setTimedTextShown(true);
+}

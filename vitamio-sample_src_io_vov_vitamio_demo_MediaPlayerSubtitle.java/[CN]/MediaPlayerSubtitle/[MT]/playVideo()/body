@@ -1,0 +1,26 @@
+{
+  try {
+    if (path == "") {
+      Toast.makeText(MediaPlayerSubtitle.this,"Please edit MediaPlayer Activity, " + "and set the path variable to your media file path." + " Your media file must be stored on sdcard.",Toast.LENGTH_LONG).show();
+      return;
+    }
+    mediaPlayer=new MediaPlayer(this);
+    mediaPlayer.setDataSource(path);
+    mediaPlayer.setDisplay(sholder);
+    mediaPlayer.prepareAsync();
+    mediaPlayer.setOnPreparedListener(this);
+    mediaPlayer.setOnTimedTextListener(this);
+  }
+ catch (  IllegalArgumentException e) {
+    e.printStackTrace();
+  }
+catch (  IllegalStateException e) {
+    e.printStackTrace();
+  }
+catch (  SecurityException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

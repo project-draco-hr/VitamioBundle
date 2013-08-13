@@ -1,0 +1,10 @@
+{
+  super.onCreate(savedInstanceState);
+  if (!LibsChecker.checkVitamioLibs(this))   return;
+  setContentView(R.layout.subtitle1);
+  tv=(TextView)findViewById(R.id.sub1);
+  splayer=(SurfaceView)findViewById(R.id.surface);
+  sholder=splayer.getHolder();
+  sholder.setFormat(PixelFormat.RGBA_8888);
+  sholder.addCallback(this);
+}
