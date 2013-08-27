@@ -1,0 +1,8 @@
+{
+  if (mPosition > 0) {
+    mVideoView.seekTo(mPosition);
+    mPosition=0;
+  }
+  super.onResume();
+  mVideoView.start();
+}

@@ -1,0 +1,5 @@
+{
+  mPosition=mVideoView.getCurrentPosition();
+  mVideoView.stopPlayback();
+  super.onPause();
+}
