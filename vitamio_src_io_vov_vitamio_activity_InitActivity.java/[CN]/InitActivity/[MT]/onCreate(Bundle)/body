@@ -10,7 +10,7 @@
       mPD.show();
     }
     @Override protected Boolean doInBackground(    Object... params){
-      return Vitamio.initialize(InitActivity.this);
+      return Vitamio.initialize(InitActivity.this,R.raw.libarm);
     }
     @Override protected void onPostExecute(    Boolean inited){
       if (inited) {
