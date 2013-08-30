@@ -8,7 +8,6 @@
       String line;
       String[] pairs;
       while ((line=bis.readLine()) != null) {
-        Log.d(line);
         if (!line.trim().equals("")) {
           pairs=line.split(":");
           if (pairs.length > 1)           cpuinfo.put(pairs[0].trim(),pairs[1].trim());
@@ -32,7 +31,7 @@
     boolean hasARMv6=false;
     boolean hasARMv7=false;
     String val=cpuinfo.get("CPU architecture");
-    if (val != null) {
+    if (!TextUtils.isEmpty(val)) {
       try {
         int i=StringUtils.convertToInt(val);
         Log.d("CPU architecture: %s",i);
@@ -48,23 +47,33 @@
  catch (      NumberFormatException ex) {
         Log.e("getCPUFeature",ex);
       }
+      val=cpuinfo.get("Processor");
+      if (val != null && (val.contains("(v7l)") || val.contains("ARMv7"))) {
+        hasARMv6=true;
+        hasARMv7=true;
+      }
+      if (val != null && (val.contains("(v6l)") || val.contains("ARMv6"))) {
+        hasARMv6=true;
+        hasARMv7=false;
+      }
+      if (hasARMv6)       cachedFeature|=FEATURE_ARM_V6;
+      if (hasARMv7)       cachedFeature|=FEATURE_ARM_V7A;
+      val=cpuinfo.get("Features");
+      if (val != null) {
+        if (val.contains("neon"))         cachedFeature|=FEATURE_ARM_VFP | FEATURE_ARM_VFPV3 | FEATURE_ARM_NEON;
+ else         if (val.contains("vfpv3"))         cachedFeature|=FEATURE_ARM_VFP | FEATURE_ARM_VFPV3;
+ else         if (val.contains("vfp"))         cachedFeature|=FEATURE_ARM_VFP;
+      }
     }
-    val=cpuinfo.get("Processor");
-    if (val != null && val.contains("(v7l)") || val.contains("ARMv7")) {
-      hasARMv6=true;
-      hasARMv7=true;
-    }
-    if (val != null && val.contains("(v6l)") || val.contains("ARMv6")) {
-      hasARMv6=true;
-      hasARMv7=false;
-    }
-    if (hasARMv6)     cachedFeature|=FEATURE_ARM_V6;
-    if (hasARMv7)     cachedFeature|=FEATURE_ARM_V7A;
-    val=cpuinfo.get("Features");
-    if (val != null) {
-      if (val.contains("neon"))       cachedFeature|=FEATURE_ARM_VFP | FEATURE_ARM_VFPV3 | FEATURE_ARM_NEON;
- else       if (val.contains("vfpv3"))       cachedFeature|=FEATURE_ARM_VFP | FEATURE_ARM_VFPV3;
- else       if (val.contains("vfp"))       cachedFeature|=FEATURE_ARM_VFP;
+ else {
+      String vendor_id=cpuinfo.get("vendor_id");
+      String mips=cpuinfo.get("cpu model");
+      if (!TextUtils.isEmpty(vendor_id) && vendor_id.contains("GenuineIntel")) {
+        cachedFeature|=FEATURE_X86;
+      }
+ else       if (!TextUtils.isEmpty(mips) && mips.contains("MIPS")) {
+        cachedFeature|=FEATURE_MIPS;
+      }
     }
   }
   return getCachedFeature();

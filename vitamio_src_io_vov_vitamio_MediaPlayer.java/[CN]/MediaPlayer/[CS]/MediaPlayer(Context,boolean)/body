@@ -3,7 +3,7 @@
   String LIB_ROOT=Vitamio.getLibraryPath();
   if (preferHWDecoder) {
     if (!NATIVE_OMX_LOADED.get()) {
-      if (Build.VERSION.SDK_INT > 15)       loadOMX_native(LIB_ROOT + "libOMX.16.so");
+      if (Build.VERSION.SDK_INT > 17)       loadOMX_native(LIB_ROOT + "libOMX.18.so");
  else       if (Build.VERSION.SDK_INT > 13)       loadOMX_native(LIB_ROOT + "libOMX.14.so");
  else       if (Build.VERSION.SDK_INT > 10)       loadOMX_native(LIB_ROOT + "libOMX.11.so");
  else       loadOMX_native(LIB_ROOT + "libOMX.9.so");

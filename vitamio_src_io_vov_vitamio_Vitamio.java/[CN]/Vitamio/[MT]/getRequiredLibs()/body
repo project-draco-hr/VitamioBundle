@@ -1,8 +1,26 @@
 {
   List<String> libs=new ArrayList<String>();
-  for (  String[] libArray : new String[][]{LIBS_CODECS,LIBS_PLAYER,LIBS_SCANNER,LIBS_AV}) {
-    for (    String lib : libArray)     libs.add(lib);
-  }
-  libs.add(LIBS_LOCK);
-  return libs;
+  String[][] vitamioLibs=null;
+switch (vitamioType) {
+case VITAMIO_ARMV6:
+case VITAMIO_ARMV6_VFP:
+case VITAMIO_ARMV7_VFPV3:
+case VITAMIO_ARMV7_NEON:
+    vitamioLibs=new String[][]{LIBS_ARM_CODECS,LIBS_PLAYER,LIBS_SCANNER,LIBS_AV};
+  break;
+case VITAMIO_X86:
+vitamioLibs=new String[][]{LIBS_X86_CODECS,LIBS_PLAYER,LIBS_SCANNER,LIBS_AV};
+break;
+case VITAMIO_MIPS:
+vitamioLibs=new String[][]{LIBS_MIPS_CODECS,LIBS_PLAYER,LIBS_SCANNER,LIBS_AV};
+break;
+default :
+break;
+}
+if (vitamioLibs == null) return libs;
+for (String[] libArray : vitamioLibs) {
+for (String lib : libArray) libs.add(lib);
+}
+libs.add(LIBS_LOCK);
+return libs;
 }

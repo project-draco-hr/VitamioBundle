@@ -13,11 +13,11 @@
         }
       }
       File lock=new File(getLibraryPath() + LIBS_LOCK);
-      FileReader fr=null;
+      BufferedReader buffer=null;
       try {
-        fr=new FileReader(lock);
+        buffer=new BufferedReader(new FileReader(lock));
         int appVersion=ContextUtils.getVersionCode(ctx);
-        int libVersion=fr.read();
+        int libVersion=Integer.valueOf(buffer.readLine());
         Log.i("isNativeLibsInited, APP VERSION: %d, Vitamio Library version: %d",appVersion,libVersion);
         if (libVersion == appVersion)         return true;
       }
@@ -25,7 +25,7 @@
         Log.e("isNativeLibsInited",e);
       }
  finally {
-        IOUtils.closeSilently(fr);
+        IOUtils.closeSilently(buffer);
       }
     }
   }

@@ -1,11 +1,19 @@
 {
-  StringBuffer headerBuffer=null;
-  if (headers != null) {
-    headerBuffer=new StringBuffer();
-    for (    Map.Entry<String,String> entry : headers.entrySet()) {
-      headerBuffer.append(entry.getKey()).append(":").append(entry.getValue()).append("\r\n");
-    }
+  if (context == null || uri == null)   throw new IllegalArgumentException();
+  String scheme=uri.getScheme();
+  if (scheme == null || scheme.equals("file")) {
+    setDataSource(FileUtils.getPath(uri.toString()));
+    return;
   }
-  setDataSource(context,uri,headerBuffer == null ? null : headerBuffer.toString());
-  return;
+  try {
+    ContentResolver resolver=context.getContentResolver();
+    mFD=resolver.openAssetFileDescriptor(uri,"r");
+    if (mFD == null)     return;
+    setDataSource(mFD.getParcelFileDescriptor().getFileDescriptor());
+    return;
+  }
+ catch (  Exception e) {
+    closeFD();
+  }
+  setDataSource(uri.toString(),headers);
 }

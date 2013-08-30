@@ -7,6 +7,8 @@
     if ((cachedFeature & FEATURE_ARM_V7A) > 0)     sb.append("V7A ");
     if ((cachedFeature & FEATURE_ARM_VFPV3) > 0)     sb.append("VFPV3 ");
     if ((cachedFeature & FEATURE_ARM_NEON) > 0)     sb.append("NEON ");
+    if ((cachedFeature & FEATURE_X86) > 0)     sb.append("X86 ");
+    if ((cachedFeature & FEATURE_MIPS) > 0)     sb.append("MIPS ");
     cachedFeatureString=sb.toString();
   }
   Log.d("GET CPU FATURE: %s",cachedFeatureString);
