@@ -1,3 +1,4 @@
 {
-  if (mMediaPlayer != null)   mMediaPlayer.setVideoChroma(chroma);
+  getHolder().setFormat(chroma == MediaPlayer.VIDEOCHROMA_RGB565 ? PixelFormat.RGB_565 : PixelFormat.RGBA_8888);
+  mVideoChroma=chroma;
 }

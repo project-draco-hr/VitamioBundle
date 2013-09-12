@@ -1,0 +1,4 @@
+{
+  if (mMediaBufferingIndicator != null)   mMediaBufferingIndicator.setVisibility(View.GONE);
+  mMediaBufferingIndicator=mediaBufferingIndicator;
+}

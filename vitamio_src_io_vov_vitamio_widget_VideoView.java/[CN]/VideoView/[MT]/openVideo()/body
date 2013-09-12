@@ -18,6 +18,7 @@
     mMediaPlayer.setOnTimedTextListener(mTimedTextListener);
     mMediaPlayer.setDataSource(mContext,mUri);
     mMediaPlayer.setDisplay(mSurfaceHolder);
+    mMediaPlayer.setVideoChroma(mVideoChroma == MediaPlayer.VIDEOCHROMA_RGB565 ? MediaPlayer.VIDEOCHROMA_RGB565 : MediaPlayer.VIDEOCHROMA_RGBA);
     mMediaPlayer.setScreenOnWhilePlaying(true);
     mMediaPlayer.prepareAsync();
     mCurrentState=STATE_PREPARING;
