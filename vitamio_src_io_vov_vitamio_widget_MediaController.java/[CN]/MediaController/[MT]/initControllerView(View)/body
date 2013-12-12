@@ -9,7 +9,6 @@
     if (mProgress instanceof SeekBar) {
       SeekBar seeker=(SeekBar)mProgress;
       seeker.setOnSeekBarChangeListener(mSeekListener);
-      seeker.setThumbOffset(1);
     }
     mProgress.setMax(1000);
   }

@@ -1,7 +1,6 @@
 {
   if (!mShowing && mAnchor != null && mAnchor.getWindowToken() != null) {
     if (mPauseButton != null)     mPauseButton.requestFocus();
-    disableUnsupportedButtons();
     if (mFromXml) {
       setVisibility(View.VISIBLE);
     }
