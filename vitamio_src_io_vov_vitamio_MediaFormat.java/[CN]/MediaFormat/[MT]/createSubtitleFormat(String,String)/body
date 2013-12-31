@@ -1,0 +1,6 @@
+{
+  MediaFormat format=new MediaFormat();
+  format.setString(KEY_TITLE,title);
+  format.setString(KEY_LANGUAGE,language);
+  return format;
+}

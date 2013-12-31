@@ -1,0 +1,12 @@
+{
+  if (mOutOfBandTracks != null) {
+    SparseArray<MediaFormat> mediaSparse=mOutOfBandTracks.getTrackInfoArray();
+    int trackIndex=mediaSparse.keyAt(0);
+    MediaFormat mediaFormat=mediaSparse.valueAt(0);
+    if (index == trackIndex && select) {
+      addTimedTextSource(mediaFormat.getString(MediaFormat.KEY_PATH));
+      return;
+    }
+  }
+  selectOrDeselectTrack(index,select);
+}

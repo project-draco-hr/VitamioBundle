@@ -53,6 +53,12 @@ mOnCachingUpdateListener.onCachingUpdate(mMediaPlayer,msg.getData().getLongArray
  else if (cacheType == CACHE_TYPE_SPEED) {
 mOnCachingUpdateListener.onCachingSpeed(mMediaPlayer,msg.getData().getInt(MEDIA_CACHING_INFO));
 }
+ else if (cacheType == CACHE_TYPE_START) {
+mOnCachingUpdateListener.onCachingStart(mMediaPlayer);
+}
+ else if (cacheType == CACHE_TYPE_COMPLETE) {
+mOnCachingUpdateListener.onCachingComplete(mMediaPlayer);
+}
 }
 return;
 case MEDIA_NOP:

@@ -1,0 +1,3 @@
+{
+  mMap.put(name,Long.valueOf(value));
+}

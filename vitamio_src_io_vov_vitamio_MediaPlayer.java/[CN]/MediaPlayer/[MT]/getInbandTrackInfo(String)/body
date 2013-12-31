@@ -1,0 +1,16 @@
+{
+  if (mInbandTracks == null) {
+    SparseArray<byte[]> trackSparse=new SparseArray<byte[]>();
+    if (!native_getTrackInfo(trackSparse)) {
+      return null;
+    }
+    int size=trackSparse.size();
+    mInbandTracks=new TrackInfo[size];
+    for (int i=0; i < size; i++) {
+      SparseArray<MediaFormat> sparseArray=parseTrackInfo(trackSparse.valueAt(i),encoding);
+      TrackInfo trackInfo=new TrackInfo(trackSparse.keyAt(i),sparseArray);
+      mInbandTracks[i]=trackInfo;
+    }
+  }
+  return mInbandTracks;
+}

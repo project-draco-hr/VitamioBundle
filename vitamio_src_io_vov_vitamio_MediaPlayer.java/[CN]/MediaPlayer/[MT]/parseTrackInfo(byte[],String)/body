@@ -1,5 +1,5 @@
 {
-  SparseArray<String> trackSparse=new SparseArray<String>();
+  SparseArray<MediaFormat> trackSparse=new SparseArray<MediaFormat>();
   String trackString;
   int trackNum;
   try {
@@ -11,9 +11,17 @@
   }
   for (  String s : trackString.split("!#!")) {
     try {
-      if (s.contains("."))       trackNum=Integer.parseInt(s.split("\\.")[0]);
- else       trackNum=Integer.parseInt(s);
-      trackSparse.put(trackNum,s);
+      MediaFormat mediaFormat=null;
+      String[] formats=s.split("\\.");
+      if (formats == null)       continue;
+      trackNum=Integer.parseInt(formats[0]);
+      if (formats.length == 3) {
+        mediaFormat=MediaFormat.createSubtitleFormat(formats[2],formats[1]);
+      }
+ else       if (formats.length == 2) {
+        mediaFormat=MediaFormat.createSubtitleFormat("",formats[1]);
+      }
+      trackSparse.put(trackNum,mediaFormat);
     }
  catch (    NumberFormatException e) {
     }
