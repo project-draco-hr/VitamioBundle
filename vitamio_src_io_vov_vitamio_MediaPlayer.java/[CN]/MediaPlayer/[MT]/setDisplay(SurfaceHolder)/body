@@ -5,7 +5,7 @@
  else {
     mSurfaceHolder=sh;
     mSurface=sh.getSurface();
-    _setVideoSurface();
+    _setVideoSurface(mSurface);
     updateSurfaceScreenOn();
   }
 }

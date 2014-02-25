@@ -5,7 +5,7 @@
  else {
     mSurfaceHolder=null;
     mSurface=surface;
-    _setVideoSurface();
+    _setVideoSurface(mSurface);
     updateSurfaceScreenOn();
   }
 }
