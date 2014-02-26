@@ -1,0 +1,4 @@
+{
+  Log.v(TAG,"startVideoPlayback");
+  mMediaPlayer.start();
+}

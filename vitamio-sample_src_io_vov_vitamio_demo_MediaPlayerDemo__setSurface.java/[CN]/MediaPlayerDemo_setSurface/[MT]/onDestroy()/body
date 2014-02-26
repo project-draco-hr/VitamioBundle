@@ -1,0 +1,5 @@
+{
+  super.onDestroy();
+  releaseMediaPlayer();
+  doCleanUp();
+}

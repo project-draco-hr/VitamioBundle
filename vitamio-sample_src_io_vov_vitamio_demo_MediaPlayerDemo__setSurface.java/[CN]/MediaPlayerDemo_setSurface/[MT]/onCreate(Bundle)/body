@@ -1,0 +1,7 @@
+{
+  super.onCreate(icicle);
+  if (!LibsChecker.checkVitamioLibs(this))   return;
+  setContentView(R.layout.mediaplayer_3);
+  mTextureView=(TextureView)findViewById(R.id.surface);
+  mTextureView.setSurfaceTextureListener(this);
+}

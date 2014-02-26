@@ -5,6 +5,8 @@
   mlocalaudio.setOnClickListener(mLocalAudioListener);
   mlocalvideo=(Button)findViewById(R.id.localvideo);
   mlocalvideo.setOnClickListener(mLocalVideoListener);
+  mlocalvideoSurface=(Button)findViewById(R.id.localvideo_setsurface);
+  mlocalvideoSurface.setOnClickListener(mSetSurfaceVideoListener);
   mstreamvideo=(Button)findViewById(R.id.streamvideo);
   mstreamvideo.setOnClickListener(mStreamVideoListener);
 }
