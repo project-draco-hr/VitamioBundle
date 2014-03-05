@@ -1,10 +1,10 @@
 {
-  mPauseButton=(ImageButton)v.findViewById(R.id.mediacontroller_play_pause);
+  mPauseButton=(ImageButton)v.findViewById(getResources().getIdentifier("mediacontroller_play_pause","id",mContext.getPackageName()));
   if (mPauseButton != null) {
     mPauseButton.requestFocus();
     mPauseButton.setOnClickListener(mPauseListener);
   }
-  mProgress=(SeekBar)v.findViewById(R.id.mediacontroller_seekbar);
+  mProgress=(SeekBar)v.findViewById(getResources().getIdentifier("mediacontroller_seekbar","id",mContext.getPackageName()));
   if (mProgress != null) {
     if (mProgress instanceof SeekBar) {
       SeekBar seeker=(SeekBar)mProgress;
@@ -12,8 +12,8 @@
     }
     mProgress.setMax(1000);
   }
-  mEndTime=(TextView)v.findViewById(R.id.mediacontroller_time_total);
-  mCurrentTime=(TextView)v.findViewById(R.id.mediacontroller_time_current);
-  mFileName=(TextView)v.findViewById(R.id.mediacontroller_file_name);
+  mEndTime=(TextView)v.findViewById(getResources().getIdentifier("mediacontroller_time_total","id",mContext.getPackageName()));
+  mCurrentTime=(TextView)v.findViewById(getResources().getIdentifier("mediacontroller_time_current","id",mContext.getPackageName()));
+  mFileName=(TextView)v.findViewById(getResources().getIdentifier("mediacontroller_file_name","id",mContext.getPackageName()));
   if (mFileName != null)   mFileName.setText(mTitle);
 }

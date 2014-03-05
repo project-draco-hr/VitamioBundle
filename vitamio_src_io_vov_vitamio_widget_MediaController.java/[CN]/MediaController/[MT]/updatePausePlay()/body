@@ -1,5 +1,5 @@
 {
   if (mRoot == null || mPauseButton == null)   return;
-  if (mPlayer.isPlaying())   mPauseButton.setImageResource(R.drawable.mediacontroller_pause);
- else   mPauseButton.setImageResource(R.drawable.mediacontroller_play);
+  if (mPlayer.isPlaying())   mPauseButton.setImageResource(getResources().getIdentifier("mediacontroller_pause","drawable",mContext.getPackageName()));
+ else   mPauseButton.setImageResource(getResources().getIdentifier("mediacontroller_play","drawable",mContext.getPackageName()));
 }
