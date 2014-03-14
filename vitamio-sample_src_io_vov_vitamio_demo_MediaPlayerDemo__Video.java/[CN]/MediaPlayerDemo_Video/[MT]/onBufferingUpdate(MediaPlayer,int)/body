@@ -1,3 +1,2 @@
 {
-  Log.d(TAG,"onBufferingUpdate percent:" + percent);
 }

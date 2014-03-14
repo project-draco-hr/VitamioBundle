@@ -20,12 +20,11 @@ break;
 mMediaPlayer=new MediaPlayer(this);
 mMediaPlayer.setDataSource(path);
 mMediaPlayer.setDisplay(holder);
-mMediaPlayer.prepare();
+mMediaPlayer.prepareAsync();
 mMediaPlayer.setOnBufferingUpdateListener(this);
 mMediaPlayer.setOnCompletionListener(this);
 mMediaPlayer.setOnPreparedListener(this);
 mMediaPlayer.setOnVideoSizeChangedListener(this);
-mMediaPlayer.getMetadata();
 setVolumeControlStream(AudioManager.STREAM_MUSIC);
 }
  catch (Exception e) {
