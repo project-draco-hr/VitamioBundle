@@ -4,6 +4,9 @@
   mVideoHeight=0;
   getHolder().setFormat(PixelFormat.RGBA_8888);
   getHolder().addCallback(mSHCallback);
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB && mHardwareDecoder) {
+    getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+  }
   setFocusable(true);
   setFocusableInTouchMode(true);
   requestFocus();

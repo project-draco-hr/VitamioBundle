@@ -1,6 +1,5 @@
 {
-  if (mAudioTrack != null) {
-    audioTrackStart();
+  if (mAudioTrack != null && mAudioTrack.getPlayState() == AudioTrack.PLAYSTATE_PLAYING) {
     int written;
     while (sizeInBytes > 0) {
       written=sizeInBytes > mAudioTrackBufferSize ? mAudioTrackBufferSize : sizeInBytes;

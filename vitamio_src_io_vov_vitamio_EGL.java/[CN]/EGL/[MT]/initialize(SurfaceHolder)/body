@@ -1,4 +1,0 @@
-{
-  start();
-  return createSurface(holder) != null;
-}
