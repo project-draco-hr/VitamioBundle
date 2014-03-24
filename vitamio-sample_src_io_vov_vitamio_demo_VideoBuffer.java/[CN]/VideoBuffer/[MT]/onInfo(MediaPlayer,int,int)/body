@@ -5,6 +5,8 @@ case MediaPlayer.MEDIA_INFO_BUFFERING_START:
       mVideoView.pause();
       isStart=true;
       pb.setVisibility(View.VISIBLE);
+      downloadRateView.setText("");
+      loadRateView.setText("");
       downloadRateView.setVisibility(View.VISIBLE);
       loadRateView.setVisibility(View.VISIBLE);
     }
