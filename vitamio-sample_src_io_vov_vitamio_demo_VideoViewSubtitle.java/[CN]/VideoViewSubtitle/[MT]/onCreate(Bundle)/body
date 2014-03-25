@@ -10,7 +10,6 @@
   }
  else {
     mVideoView.setVideoPath(path);
-    mVideoView.setMediaController(new MediaController(this));
     mVideoView.requestFocus();
     mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener(){
       @Override public void onPrepared(      MediaPlayer mediaPlayer){

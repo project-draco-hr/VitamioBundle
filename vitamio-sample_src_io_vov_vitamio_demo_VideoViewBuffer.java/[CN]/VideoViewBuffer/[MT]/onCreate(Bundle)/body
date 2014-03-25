@@ -7,7 +7,7 @@
   downloadRateView=(TextView)findViewById(R.id.download_rate);
   loadRateView=(TextView)findViewById(R.id.load_rate);
   if (path == "") {
-    Toast.makeText(VideoBuffer.this,"Please edit VideoBuffer Activity, and set path" + " variable to your media file URL/path",Toast.LENGTH_LONG).show();
+    Toast.makeText(VideoViewBuffer.this,"Please edit VideoBuffer Activity, and set path" + " variable to your media file URL/path",Toast.LENGTH_LONG).show();
     return;
   }
  else {
