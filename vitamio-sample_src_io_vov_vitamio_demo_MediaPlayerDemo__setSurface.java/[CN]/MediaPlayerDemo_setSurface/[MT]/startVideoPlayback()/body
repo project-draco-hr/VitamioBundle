@@ -1,4 +1,5 @@
 {
   Log.v(TAG,"startVideoPlayback");
+  adjustAspectRatio(mMediaPlayer.getVideoWidth(),mMediaPlayer.getVideoHeight());
   mMediaPlayer.start();
 }

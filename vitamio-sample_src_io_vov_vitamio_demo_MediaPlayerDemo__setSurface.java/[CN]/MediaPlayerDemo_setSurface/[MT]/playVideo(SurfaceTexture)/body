@@ -6,7 +6,7 @@
       Toast.makeText(MediaPlayerDemo_setSurface.this,"Please edit MediaPlayerDemo_setSurface Activity, " + "and set the path variable to your media file path." + " Your media file must be stored on sdcard.",Toast.LENGTH_LONG).show();
       return;
     }
-    mMediaPlayer=new MediaPlayer(this);
+    mMediaPlayer=new MediaPlayer(this,true);
     mMediaPlayer.setDataSource(path);
     mMediaPlayer.setSurface(new Surface(surfaceTexture));
     mMediaPlayer.prepareAsync();
