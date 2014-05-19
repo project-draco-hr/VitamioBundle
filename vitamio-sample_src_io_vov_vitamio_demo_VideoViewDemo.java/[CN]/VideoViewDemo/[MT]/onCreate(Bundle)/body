@@ -2,6 +2,7 @@
   super.onCreate(icicle);
   if (!LibsChecker.checkVitamioLibs(this))   return;
   setContentView(R.layout.videoview);
+  mEditText=(EditText)findViewById(R.id.url);
   mVideoView=(VideoView)findViewById(R.id.surface_view);
   if (path == "") {
     Toast.makeText(VideoViewDemo.this,"Please edit VideoViewDemo Activity, and set path" + " variable to your media file URL/path",Toast.LENGTH_LONG).show();

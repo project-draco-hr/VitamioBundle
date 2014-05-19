@@ -1,0 +1,7 @@
+{
+  String url=mEditText.getText().toString();
+  path=url;
+  if (!TextUtils.isEmpty(url)) {
+    mVideoView.setVideoPath(url);
+  }
+}
