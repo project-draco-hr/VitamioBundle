@@ -1,0 +1,15 @@
+{
+  try {
+    WindowManager wm=(WindowManager)ctx.getSystemService(Context.WINDOW_SERVICE);
+    Display display=wm.getDefaultDisplay();
+    Method mGetRawWidth=Display.class.getMethod("getRawWidth");
+    Method mGetRawHeight=Display.class.getMethod("getRawHeight");
+    Integer realWidth=(Integer)mGetRawWidth.invoke(display);
+    Integer realHeight=(Integer)mGetRawHeight.invoke(display);
+    return new Pair<Integer,Integer>(realWidth,realHeight);
+  }
+ catch (  Exception e) {
+    DisplayMetrics disp=ctx.getResources().getDisplayMetrics();
+    return new Pair<Integer,Integer>(disp.widthPixels,disp.heightPixels);
+  }
+}

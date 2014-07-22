@@ -1,0 +1,7 @@
+{
+  WindowManager wm=(WindowManager)ctx.getSystemService(Context.WINDOW_SERVICE);
+  Display display=wm.getDefaultDisplay();
+  DisplayMetrics metrics=new DisplayMetrics();
+  display.getRealMetrics(metrics);
+  return new Pair<Integer,Integer>(metrics.widthPixels,metrics.heightPixels);
+}

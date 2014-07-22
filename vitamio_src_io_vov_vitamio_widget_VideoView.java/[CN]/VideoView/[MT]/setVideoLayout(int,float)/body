@@ -1,7 +1,7 @@
 {
   LayoutParams lp=getLayoutParams();
-  DisplayMetrics disp=mContext.getResources().getDisplayMetrics();
-  int windowWidth=disp.widthPixels, windowHeight=disp.heightPixels;
+  Pair<Integer,Integer> res=ScreenResolution.getResolution(mContext);
+  int windowWidth=res.first.intValue(), windowHeight=res.second.intValue();
   float windowRatio=windowWidth / (float)windowHeight;
   float videoRatio=aspectRatio <= 0.01f ? mVideoAspectRatio : aspectRatio;
   mSurfaceHeight=mVideoHeight;
