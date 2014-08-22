@@ -8,7 +8,10 @@
     }
     mMediaPlayer=new MediaPlayer(this,true);
     mMediaPlayer.setDataSource(path);
-    mMediaPlayer.setSurface(new Surface(surfaceTexture));
+    if (surf == null) {
+      surf=new Surface(surfaceTexture);
+    }
+    mMediaPlayer.setSurface(surf);
     mMediaPlayer.prepareAsync();
     mMediaPlayer.setOnBufferingUpdateListener(this);
     mMediaPlayer.setOnCompletionListener(this);
