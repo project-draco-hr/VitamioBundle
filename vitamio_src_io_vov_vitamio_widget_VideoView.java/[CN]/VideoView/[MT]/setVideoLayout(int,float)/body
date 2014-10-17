@@ -14,6 +14,10 @@
     lp.width=windowRatio > videoRatio ? windowWidth : (int)(videoRatio * windowHeight);
     lp.height=windowRatio < videoRatio ? windowHeight : (int)(windowWidth / videoRatio);
   }
+ else   if (layout == VIDEO_LAYOUT_FIT_PARENT) {
+    lp.width=LayoutParams.MATCH_PARENT;
+    lp.height=LayoutParams.WRAP_CONTENT;
+  }
  else {
     boolean full=layout == VIDEO_LAYOUT_STRETCH;
     lp.width=(full || windowRatio < videoRatio) ? windowWidth : (int)(videoRatio * windowHeight);
