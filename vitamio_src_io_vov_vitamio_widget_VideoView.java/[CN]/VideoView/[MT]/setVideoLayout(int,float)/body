@@ -15,8 +15,10 @@
     lp.height=windowRatio < videoRatio ? windowHeight : (int)(windowWidth / videoRatio);
   }
  else   if (layout == VIDEO_LAYOUT_FIT_PARENT) {
-    lp.width=LayoutParams.MATCH_PARENT;
-    lp.height=LayoutParams.WRAP_CONTENT;
+    ViewGroup parent=(ViewGroup)getParent();
+    float parentRatio=((float)parent.getWidth()) / ((float)parent.getHeight());
+    lp.width=(parentRatio < videoRatio) ? parent.getWidth() : Math.round(((float)parent.getHeight()) * videoRatio);
+    lp.height=(parentRatio > videoRatio) ? parent.getHeight() : Math.round(((float)parent.getWidth()) / videoRatio);
   }
  else {
     boolean full=layout == VIDEO_LAYOUT_STRETCH;
